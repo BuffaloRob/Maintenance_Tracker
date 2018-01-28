@@ -1,0 +1,2 @@
+class MaintenanceItemsController < ApplicationController
+end
