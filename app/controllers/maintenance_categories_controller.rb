@@ -1,0 +1,2 @@
+class MaintenanceCategoriesController < ApplicationController
+end
