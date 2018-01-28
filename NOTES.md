@@ -35,6 +35,6 @@ Maintenance Task - The specific instance of a Maintenance Type that will be perf
 Site Flow:
 1) user logs in/signs-up
 2) directed to root page that shows all maintenance items and upcoming maintenance items that are due
-3) add maintenance_item
-4) add maintenance_category to maintenance_item
-5) add maintenance_log to maintenance_item
+3) add maintenance_item (car, home)
+4) add maintenance_category to maintenance_item (oil change, replace HVAC filter)
+5) add maintenance_log to maintenance_item (specific instance of oil change, replacing HVAC filter)
