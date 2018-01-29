@@ -14,7 +14,7 @@ class MaintenanceItemsController < ApplicationController
     if @maintenance_item.save
       redirect_to maintenance_item_path(@maintenance_item)
     else
-      @maintenance_item = MaintenanceItem.all
+      @maintenance_items = MaintenanceItem.all
       redirect_to :index
     end
   end
