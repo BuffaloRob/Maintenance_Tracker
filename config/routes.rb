@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :maintenance_items
   resources :maintenance_categories
   devise_for :users
-  root "home#index"
+  
+  root "maintenance_items#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
