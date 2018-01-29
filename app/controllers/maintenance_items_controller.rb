@@ -10,15 +10,23 @@ class MaintenanceItemsController < ApplicationController
   end
 
   def create
-    
+    @maintenance_item = MaintenanceItem.new(maintenance_item_params)
+    if @maintenance_item.save
+      redirect_to maintenance_item_path(@maintenance_item)
+    else
+      @maintenance_item = MaintenanceItem.all
+      redirect_to :index
+    end
   end
 
   def update
-    
+    @maintenance_item.update(maintenance_item_params)
+    redirect_to maintenance_item_path(@maintenance_item)
   end
 
   def destroy
-    
+    @maintenance_item.destroy
+    redirect_to maintenance_items_path
   end
 
   def show
