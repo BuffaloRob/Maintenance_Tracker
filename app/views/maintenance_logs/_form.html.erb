@@ -1,0 +1,18 @@
+<%= form_for(@maintenance_log) do |f| %>
+
+  <%= f.label :date_performed %>
+  <%= f.datetime_select :date_performed %>
+  <%= f.label :date_due %>
+  <%= f.datetime_select :date_due %>
+
+  <%= f.label :tools %>
+  <%= f.text_field :tools %>
+
+  <%= f.label :cost %>
+  <%= f.number_field :cost %>
+
+  <%= f.label :notes %><br>
+  <%= f.text_area :notes %><br>
+
+  <%= f.submit %>
+<% end %>
