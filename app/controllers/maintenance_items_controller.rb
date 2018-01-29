@@ -30,6 +30,7 @@ class MaintenanceItemsController < ApplicationController
   end
 
   def show
+    @maintenance_categories = MaintenanceCategory.all
   end
 
   def edit 
