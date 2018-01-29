@@ -1,4 +1,16 @@
-<%= @maintenance_log.notes %>
+<h4>Date Performed:</h4>
+<%= @maintenance_log.date_performed %><br>
+<h4>Date due:</h4>
+<%= @maintenance_log.date_due %><br>
 
-<%= link_to  "Edit", edit_maintenance_log_path(@maintenane_log) %><br>
+<h4>Tools Required:</h4>
+<%= @maintenance_log.tools %><br>
+
+<h4>Cost: $</h4>
+<%= @maintenance_log.cost %><br>
+
+<h4>Notes</h4>
+<%= @maintenance_log.notes %><br>
+<br>
+<%= link_to  "Edit", edit_maintenance_log_path(@maintenance_log) %><br>
 <%= link_to  "Add a New Entry", new_maintenance_log_path %><br>
