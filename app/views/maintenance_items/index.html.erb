@@ -1,0 +1,5 @@
+<% @maintenance_items.each do |maint_item| %>
+  <%= link_to maint_item.name, maintenance_item_path(maint_item) %>
+<% end %>
+
+<%= link_to 'Add New Maintenance Item', new_maintenance_item_path %>
