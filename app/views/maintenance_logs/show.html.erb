@@ -1,7 +1,15 @@
 <h4>Date Performed:</h4>
-<%= @maintenance_log.date_performed %><br>
+<% if @maintenance_log.date_performed %>
+  <%= @maintenance_log.date_performed.strftime("%b %d, %Y") %><br>
+<% else %>
+  No Date Entered
+<% end %>
 <h4>Date due:</h4>
-<%= @maintenance_log.date_due %><br>
+<% if @maintenance_log.date_due %>
+  <%= @maintenance_log.date_due.strftime("%b %d, %Y") %><br>
+<% else %>
+   No Date Entered
+<% end %>
 
 <h4>Tools Required:</h4>
 <%= @maintenance_log.tools %><br>
