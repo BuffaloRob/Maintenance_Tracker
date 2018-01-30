@@ -1,3 +1,8 @@
+Problems:
+1) on the maintenance_categories show page I can't convert the time to something more readable using strtime method
+2) Navbar not working as the site demonstrates, do I need something for JS? also, look at the bootstrap gem install instructions
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Messages:
 
 - User wants to know when is the maintenance item due
