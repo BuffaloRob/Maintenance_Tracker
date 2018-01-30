@@ -30,6 +30,7 @@ class MaintenanceCategoriesController < ApplicationController
   end
 
   def show
+    @maintenance_logs = MaintenanceLog.all
   end
 
   def edit 
