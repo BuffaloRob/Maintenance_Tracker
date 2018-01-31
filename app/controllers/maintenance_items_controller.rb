@@ -43,7 +43,7 @@ class MaintenanceItemsController < ApplicationController
   end
 
   def maintenance_item_params
-    params.require(:maintenance_item).permit(:name, :user_id) ###does user_id need to be here?
+    params.require(:maintenance_item).permit(:name)
   end
 
 end
