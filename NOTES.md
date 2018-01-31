@@ -1,6 +1,7 @@
 Problems:
 1) on the maintenance_categories show page I can't convert the time to something more readable using strtime method
-2) Navbar not working as the site demonstrates, do I need something for JS? also, look at the bootstrap gem install instructions
+2) The maintenance_categories show page is showing links to logs that belong to a different category, need to make sure you're iterating over the right thing
+3) Navbar not working as the site demonstrates, do I need something for JS? also, look at the bootstrap gem install instructions
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Messages:
