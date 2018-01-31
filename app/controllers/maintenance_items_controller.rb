@@ -10,7 +10,7 @@ class MaintenanceItemsController < ApplicationController
   end
 
   def create
-    @maintenance_item = MaintenanceItem.new(maintenance_item_params)
+    @maintenance_item = current_user.maintenance_items.build(maintenance_item_params)
     if @maintenance_item.save
       redirect_to maintenance_item_path(@maintenance_item)
     else
@@ -43,7 +43,7 @@ class MaintenanceItemsController < ApplicationController
   end
 
   def maintenance_item_params
-    params.require(:maintenance_item).permit(:name, :user_id) ###does user_id need to be here?
+    params.require(:maintenance_item).permit(:name, :user_id)
   end
 
 end

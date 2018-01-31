@@ -8,24 +8,9 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-md navbar-light bg-primary">
-
-  <a class="navbar-brand">MT</a>
-  <div class="navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link" href="/">Home
-        <span class="sr-only">(current)</span>
-      </a>
-      <a class="nav-item nav-link" href="/maintenance_items/new">New Item</a>
-      <a class="nav-item nav-link" href="/users/sign_in">Sign in</a>
-      <a class="nav-item nav-link" href="/users/sign_out">Log Out</a>
-    </div>
-  </div>
-</nav>
-
+<%= render 'layouts/header' %>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-
 <%= yield %>
 
 </body>
