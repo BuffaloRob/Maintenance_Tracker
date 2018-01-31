@@ -42,6 +42,6 @@ class MaintenanceLogsController < ApplicationController
   end
 
   def maintenance_log_params
-    params.require(:maintenance_log).permit(:notes, :tools, :cost, :date_performed, :date_due) ###does user_id need to be here?
+    params.require(:maintenance_log).permit(:notes, :tools, :cost, :date_performed, :date_due)
   end
 end
