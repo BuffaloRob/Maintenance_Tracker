@@ -1,7 +1,8 @@
 <%= form_for(@maintenance_category) do |f| %>
+  <%= f.hidden_field :maintenance_item_id %>
+  
   <%= f.label :name %><br>
   <%= f.text_field :name %><br>
-  <%= f.hidden_field :maintenance_item_id, :value => ##you left off here, trying to figure out how to set up your route so it looks like item/1/category/new and how the url knows whether to associate it with an item or not... look at the routing and nested resources labs first %>
 
   <%= f.submit %><br>
 
