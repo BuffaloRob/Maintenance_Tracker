@@ -10,7 +10,9 @@ class MaintenanceCategoriesController < ApplicationController
   end
 
   def create
-    @maintenance_category = MaintenanceCategory.new(maintenance_category_params)
+    binding.pry
+    @maintenance_item = MaintenanceItem.find_by(params[:maintenance_item_id])
+    @maintenance_category = @maintenance_item.maintenance_categories.build(maintenance_category_params)
     if @maintenance_category.save
       redirect_to maintenance_category_path(@maintenance_category)
     else
@@ -30,7 +32,8 @@ class MaintenanceCategoriesController < ApplicationController
   end
 
   def show
-    @maintenance_logs = MaintenanceLog.all
+    #need @maintenance_logs to be of a specific instance of maintenance_category
+    # @maintenance_logs = @maintenance_category.maintenance_log
   end
 
   def edit 
