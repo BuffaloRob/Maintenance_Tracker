@@ -1,8 +1,5 @@
 Problems:
-1) on the maintenance_categories show page I can't convert the time to something more readable using strtime method
-2) No associations are being made, i.e. when I make a maintenance_category it isn't associated with the maintenance_item it should belong to, and maintenance_logs aren't being associated with their maintenance_category
-3) The maintenance_categories show page is showing links to logs that belong to a different category, need to make sure you're iterating over the right thing
-4) Navbar not working as the site demonstrates, do I need something for JS? also, look at the bootstrap gem install instructions
+1) Need to edit routes so that you can't create a maintenance category unless it's associated with an item and you can't create a log unless it's associated with a category
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Messages:
