@@ -2,7 +2,7 @@ class MaintenanceItemsController < ApplicationController
   before_action :set_maintenance_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @maintenance_items = MaintenanceItem.all
+    @maintenance_items = current_user.maintenance_items
   end
 
   def new
@@ -30,7 +30,8 @@ class MaintenanceItemsController < ApplicationController
   end
 
   def show
-    # @maintenance_categories = MaintenanceCategory.all
+    # @maintenance_categories = MaintenanceCategory.all  
+    # @maintenance_item = current_user.maintenance_item.find_by(id: params[:id])
   end
 
   def edit 
