@@ -2,3 +2,4 @@
 
 from line 2:
   <%= f.hidden_field :maintenance_category_id %>
+--------------------------------------------------------
