@@ -28,6 +28,7 @@ Features:
 7) Auto populate new maintenance items with previous maintenance items of the same kind's data (i.e. if i say i want to schedule a new oil change it'll populate how much oil I'll need, oil type, filter part No., tools needed)
 8) Can use camera phone to auto populate tech data from a manual (think of what evernote does with business cards or apple does with credit cards)
 9) Create 'Mechanic's Access' to allow mechanics the ability to add entries that a User shares with them. They can edit any entry they make but no others.
+10) Timestamps for important fields to prevent/show tampering
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
