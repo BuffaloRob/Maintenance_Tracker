@@ -1,5 +1,7 @@
 <%= form_for(@maintenance_item) do |f| %>
-  <%=  f.label :name %><br>
+  <%= f.hidden_field :maintenance_category_id %>
+  
+  <%= f.label :name %><br>
   <%= f.text_field :name %><br>
 
   <%= f.submit %>
