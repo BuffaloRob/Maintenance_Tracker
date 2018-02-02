@@ -1,9 +1,9 @@
 <h1><%= @maintenance_category.name %></h1>
 
-<%= @maintenance_category.logs.each do |log| %>
+<%= @maintenance_category.maintenance_logs.each do |log| %>
   <%= link_to  log.date_performed.strftime("%b %d, %Y") , maintenance_log_path(log) %><br>
 <% end %>
 <br>
 <%= link_to  "Add a New Log for #{@maintenance_category.name}", 
-new_maintenance_category_maintenance_log_path %><br>
+new_maintenance_category_maintenance_log_path(@maintenance_category) %><br>
 <%= link_to  "Edit the Name of #{@maintenance_category.name}", edit_maintenance_category_path(@maintenance_category) %><br>
