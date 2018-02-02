@@ -1,7 +1,9 @@
 <h4><%= @maintenance_item.name.pluralize %> Maintenance Categories</h4>
-<% @maintenance_item.maintenance_categories.each do |category| %>
-  <%= link_to  category.name, maintenance_category_path(category) %><br>
+<% unless @maintenance_item.maintenance_categories.nil? %>
+  <% @maintenance_item.maintenance_categories.each do |category| %>
+    <%= link_to  category.name, maintenance_category_path(category) %><br>
+  <% end %>
 <% end %>
 <br>
 <%= link_to  "Edit", edit_maintenance_item_path(@maintenance_item) %><br>
-<%= link_to  "Add a New Maintenance Category", new_maintenance_item_maintenance_category_path %><br>
+<%= link_to  "Add a New Maintenance Category", new_maintenance_item_maintenance_category_path(@maintenance_item) %><br>
