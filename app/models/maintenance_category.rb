@@ -1,4 +1,4 @@
 class MaintenanceCategory < ActiveRecord::Base
-  has_many :item_categories
+  belongs_to :maintenance_item
   has_many :maintenance_logs
 end
