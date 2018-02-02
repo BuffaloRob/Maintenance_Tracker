@@ -1,6 +1,7 @@
 module MaintenanceLogsHelper
-  def formatted_time
-    strftime("%b %d, %Y")
+
+  def formatted_date_performed(maintenance_log)
+    maintenance_log.date_performed.strftime("%b %d, %Y")
   end
 
   def time_entered?
