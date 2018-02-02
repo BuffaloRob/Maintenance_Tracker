@@ -30,6 +30,7 @@ class MaintenanceItemsController < ApplicationController
   end
 
   def show
+    #test
     # @maintenance_categories = MaintenanceCategory.all  
     # @maintenance_item = current_user.maintenance_item.find_by(id: params[:id])
   end
