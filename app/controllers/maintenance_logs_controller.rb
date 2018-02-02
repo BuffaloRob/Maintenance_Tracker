@@ -52,7 +52,7 @@ class MaintenanceLogsController < ApplicationController
       @maintenance_category = MaintenanceCategory.find_by(id: params[:maintenance_category_id])
       @maintenance_log = @maintenance_category.maintenance_logs.find_by(id: params[:id])
       if @maintenance_log.nil?
-        redirect_to maintenance_category_maintenance_log_path(@maintenance_category) alert: "log not found"
+        redirect_to maintenance_category_maintenance_log_path(@maintenance_category), alert: "log not found"
       end 
     else
       @maintenance_log = MaintenanceLog.find(params[:id])
