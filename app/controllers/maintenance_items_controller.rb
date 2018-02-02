@@ -2,7 +2,11 @@ class MaintenanceItemsController < ApplicationController
   before_action :set_maintenance_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @maintenance_items = current_user.maintenance_items
+    if current_user
+      @maintenance_items = current_user.maintenance_items
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def new
