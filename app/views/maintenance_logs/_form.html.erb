@@ -1,4 +1,5 @@
 <%= form_for(@maintenance_log) do |f| %>
+  <%= f.hidden_field :maintenance_category_id %>
 
   <%= f.label :date_performed %>
   <%= f.date_select :date_performed %><br>
