@@ -2,7 +2,11 @@ class MaintenanceItemsController < ApplicationController
   before_action :set_maintenance_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @maintenance_items = current_user.maintenance_items
+    if current_user
+      @maintenance_items = current_user.maintenance_items
+    else 
+      redirect_to new_user_session_path
+    end
   end
 
   def new
@@ -31,7 +35,7 @@ class MaintenanceItemsController < ApplicationController
 
   def show
     # @maintenance_categories = MaintenanceCategory.all  
-    # @maintenance_item = current_user.maintenance_item.find_by(id: params[:id])
+    # @maintenance_item = current_user.maintenance_items.find_by(id: params[:id])
   end
 
   def edit 
