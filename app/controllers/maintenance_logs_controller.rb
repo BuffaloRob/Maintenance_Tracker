@@ -18,16 +18,22 @@ class MaintenanceLogsController < ApplicationController
     if params[:maintenance_category_id] && !MaintenanceCategory.exists?(params[:maintenance_category_id])
       redirect_to maintenance_category_path, alert: "that category doesn't exist"
     else 
-      @maintenance_log = MaintenanceLog.new(maintenance_category_id: params[:maintenance_category_id])
+      @maintenance_category = MaintenanceCategory.find(params[:maintenance_category_id])
+      @maintenance_log = @maintenance_category.maintenance_logs.build
     end
   end
 
   def create
-    @maintenance_log = MaintenanceLog.new(maintenance_log_params)
-    if @maintenance_log.save
-      redirect_to maintenance_log_path(@maintenance_log)
-    else
-      render :new
+    if params[:maintenance_category_id] && !MaintenanceCategory.exists?(params[:maintenance_category_id])
+      redirect_to maintenance_category_path, alert: "that category doesn't exist"
+    else 
+      #Need to also associate with maintenance_item_id
+      @maintenance_category = MaintenanceCategory.find(params[:maintenance_category_id])
+      if @maintenance_log = @maintenance_category.maintenance_logs.create(maintenance_log_params)
+        redirect_to maintenance_log_path(@maintenance_log)
+      else
+       render :new
+      end
     end
   end
 
