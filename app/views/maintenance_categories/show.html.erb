@@ -1,6 +1,6 @@
 <h1><%= @maintenance_category.name %></h1>
 
-<%= @maintenance_category.logs.each do |log| %>
+<%= @maintenance_category.maintenance_logs.each do |log| %>
   <%= link_to  log.date_performed.strftime("%b %d, %Y") , maintenance_log_path(log) %><br>
 <% end %>
 <br>
