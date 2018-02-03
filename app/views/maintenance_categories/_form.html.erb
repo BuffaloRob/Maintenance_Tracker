@@ -1,5 +1,4 @@
-<%= form_for(@maintenance_category) do |f| %>
-  <%= f.hidden_field :maintenance_item_id %>
+<%= form_for [@maintenance_item, @maintenance_category] do |f| %>
   
   <%= f.label :name %><br>
   <%= f.text_field :name %><br>
