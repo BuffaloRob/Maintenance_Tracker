@@ -18,17 +18,24 @@ class MaintenanceCategoriesController < ApplicationController
     if params[:maintenance_item_id] && !MaintenanceItem.exists?(params[:maintenance_item_id])
       redirect_to maintenance_item_path, alert: "Maintenance Item not found"
     else
-      @maintenance_category = MaintenanceCategory.new(maintenance_item_id: params[:maintenance_item_id])
+      @maintenance_item = MaintenanceItem.find(params[:maintenance_item_id])
+      @maintenance_category = @maintenance_item.maintenance_categories.build
     end
   end
 
   def create
-    @maintenance_category = MaintenanceCategory.new(maintenance_category_params)
-    if @maintenance_category.save
-      redirect_to maintenance_category_path(@maintenance_category) 
-    else 
-      render :new
-    end
+    ## You also need to check if belongs to the right user 
+    if params[:maintenance_item_id] && !MaintenanceItem.exists?(params[:maintenance_item_id])
+      redirect_to maintenance_item_path, alert: "Maintenance Item not found"
+    else
+      @maintenance_item = MaintenanceItem.find(params[:maintenance_item_id])
+      if @maintenance_category = @maintenance_item.maintenance_categories.create(maintenance_category_params)
+        redirect_to maintenance_category_path(@maintenance_category)
+      else 
+        render :new
+      end
+    end 
+
   end
 
   def update
