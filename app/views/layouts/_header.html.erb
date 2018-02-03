@@ -1,11 +1,12 @@
-<nav class="navbar navbar-expand-md navbar-light">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
   <% if user_signed_in? %>
-    <a class="navbar-brand">Welcome, <%= current_user.email %></a>
+    <a class="navbar-brand">MT</a>
   <% else %>
     <a class="navbar-brand" href="/users/sign_in">Sign in</a>
   <% end %>
   <div class="navbar-collapse collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
+      <li class="nav_item nav-link">Welcome, <%= current_user.email %></li>
       <li class="nav_item nav-link"><a href="/">Home</a></li>
       <li class="nav_item nav-link"><a href="/maintenance_items/new">New Item</a></li>
       <li class="nav_item nav-link">

@@ -1,7 +1,6 @@
-<%= form_for [@maintenance_item, @maintenance_category] do |f| %>
+<%= form_for [@maintenance_item, @maintenance_category], :html => {:class => "form-group"} do |f| %>
   
-  <%= f.label :name %><br>
-  <%= f.text_field :name %><br>
+  <%= f.text_field :name, :class => 'form-control', :placeholder => "Enter New Category Name" %><br>
 
   <%= f.submit %><br>
 
