@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :maintenance_categories, only: [:index, :show, :new, :edit, :create]
   end 
   resources :maintenance_categories do
-    resources :maintenance_logs, only: [:index, :show, :new, :edit]
+    resources :maintenance_logs, only: [:index, :show, :new, :edit, :create]
   end
   resources :maintenance_logs
   devise_for :users
