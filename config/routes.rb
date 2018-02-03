@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 ### Need to edit routes so that you can't create a maintenance category unless it's associated with an item and you can't create a log unless it's associated with a category
   resources :maintenance_items do
-    resources :maintenance_categories, only: [:index, :show, :new, :edit]
+    resources :maintenance_categories, only: [:index, :show, :new, :edit, :create]
   end 
   resources :maintenance_categories do
     resources :maintenance_logs, only: [:index, :show, :new, :edit]
