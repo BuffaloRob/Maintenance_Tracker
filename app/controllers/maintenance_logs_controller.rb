@@ -16,7 +16,7 @@ class MaintenanceLogsController < ApplicationController
 
   def new
     if params[:maintenance_category_id] && !MaintenanceCategory.exists?(params[:maintenance_category_id])
-      redirect_to maintenance_category_path, alert: "that category doesn't exist"
+      redirect_to root_path, alert: "that category doesn't exist"
     else 
       @maintenance_category = MaintenanceCategory.find(params[:maintenance_category_id])
       @maintenance_log = @maintenance_category.maintenance_logs.build
@@ -29,6 +29,7 @@ class MaintenanceLogsController < ApplicationController
     else 
       #Need to also associate with maintenance_item_id
       @maintenance_category = MaintenanceCategory.find(params[:maintenance_category_id])
+      # binding.pry
       if @maintenance_log = @maintenance_category.maintenance_logs.create(maintenance_log_params)
         redirect_to maintenance_log_path(@maintenance_log)
       else
@@ -39,7 +40,7 @@ class MaintenanceLogsController < ApplicationController
 
   def update
     @maintenance_log = MaintenanceLog.find(params[:id])
-    @maintenance_log.update
+    @maintenance_log.update(maintenance_log_params)
 
     if @maintenance_log.save
       redirect_to maintenance_log_path(@maintenance_log)
@@ -86,6 +87,6 @@ class MaintenanceLogsController < ApplicationController
   # end
 
   def maintenance_log_params
-    params.require(:maintenance_log).permit(:notes, :tools, :cost, :date_performed, :date_due, :maintenance_category_id)
+    params.require(:maintenance_log).permit(:notes, :tools, :cost, :date_performed, :date_due, :maintenance_category_id, :maintenance_item_id)
   end
 end
