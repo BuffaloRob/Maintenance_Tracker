@@ -1,9 +1,15 @@
-<h1><%= @maintenance_category.name %></h1>
-
-<%= @maintenance_category.maintenance_logs.each do |log| %>
-  <%= link_to  log.date_performed.strftime("%b %d, %Y") , maintenance_log_path(log) %><br>
-<% end %>
-<br>
-<%= link_to  "Add a New Log for #{@maintenance_category.name}", 
-new_maintenance_category_maintenance_log_path(@maintenance_category) %><br>
-<%= link_to  "Edit the Name of #{@maintenance_category.name}", edit_maintenance_category_path(@maintenance_category) %><br>
+<div class="col-md-6">
+  <h3>Logs for <%= @maintenance_category.name %></h3>
+  <div <li class="list-group list-group-flush">
+    <%= @maintenance_category.maintenance_logs.each do |log| %>
+      <li class="d-flex align-items-start flex-md-row">
+        <%= link_to  log.date_performed.strftime("%b %d, %Y") , maintenance_log_path(log), html_options = {class: 'list-group-item list-group-item-action list-group-item-light'} %>
+      </li>
+      <br>
+    <% end %>
+  </div>
+  <br>
+  <%= link_to  "Add a New Log for #{@maintenance_category.name}", 
+  new_maintenance_category_maintenance_log_path(@maintenance_category) %><br>
+  <%= link_to  "Edit the Name of #{@maintenance_category.name}", edit_maintenance_category_path(@maintenance_category) %><br>
+</div>
