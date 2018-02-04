@@ -31,9 +31,12 @@ class MaintenanceLogsController < ApplicationController
       @maintenance_category = MaintenanceCategory.find(params[:maintenance_category_id])
       # binding.pry
       if @maintenance_log = @maintenance_category.maintenance_logs.create(maintenance_log_params)
+        # if params[:maintenance_item_id]
+        #   @maintenance_log(maintenance_item_id: params[:maintenance_item_id])
+        # end
         redirect_to maintenance_log_path(@maintenance_log)
       else
-       render :new
+        render :new
       end
     end
   end
@@ -41,7 +44,6 @@ class MaintenanceLogsController < ApplicationController
   def update
     @maintenance_log = MaintenanceLog.find(params[:id])
     @maintenance_log.update(maintenance_log_params)
-
     if @maintenance_log.save
       redirect_to maintenance_log_path(@maintenance_log)
     else 
@@ -89,4 +91,5 @@ class MaintenanceLogsController < ApplicationController
   def maintenance_log_params
     params.require(:maintenance_log).permit(:notes, :tools, :cost, :date_performed, :date_due, :maintenance_category_id, :maintenance_item_id)
   end
+
 end
