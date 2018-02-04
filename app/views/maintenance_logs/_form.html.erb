@@ -1,19 +1,19 @@
 <%= form_for [@maintenance_category, @maintenance_log], :html => {:class => "form-group"} do |f| %>
 
-  <%= f.label :date_performed, :class => 'input-group' %>
-  <%= f.date_select :date_performed, :class => 'input-group' %><br>
-  <%= f.label :date_due, :class => 'input-group' %>
-  <%= f.date_select :date_due, :class => 'input-group' %><br>
+  <%= f.label :date_performed, :class => 'input-group col-auto' %>
+  <%= f.date_select :date_performed, :class => 'input-group col-auto' %><br>
+  <%= f.label :date_due, :class => 'input-group col-auto' %>
+  <%= f.date_select :date_due, :class => 'input-group col-auto' %><br>
   <br>
 
-  <%= f.label :tools, :class => 'input-group' %><br>
-  <%= f.text_field :tools, :class => 'input-group-text', :placeholder => "Enter Tools" %><br>
+  <%= f.label :tools, :class => 'input-group col-auto' %><br>
+  <%= f.text_field :tools, :class => 'input-group-text col-auto', :placeholder => "Enter Tools" %><br>
 
-  <%= f.label :cost, :class => 'input-group' %><br>
-  <%= f.number_field :cost, :class => 'input-group-text', :placeholder => "Enter Cost" %><br>
+  <%= f.label :cost, :class => 'input-group col-auto' %><br>
+  <%= f.number_field :cost, :class => 'input-group-text col-auto', :placeholder => "Enter Cost" %><br>
 
-  <%= f.label :notes, :class => 'input-group' %><br>
-  <%= f.text_area :notes, :class => 'input-group-text', :placeholder => "Enter Any Notes" %><br>
+  <%= f.label :notes, :class => 'input-group col-auto' %><br>
+  <%= f.text_area :notes, :class => 'input-group-text col-auto', :placeholder => "Enter Any Notes" %><br>
 
   <%= f.submit %>
 <% end %>
