@@ -1,24 +1,39 @@
-<h4>Date Performed:</h4>
-<% if @maintenance_log.date_performed %>
-  <%= @maintenance_log.date_performed.strftime("%b %d, %Y") %><br>
-<% else %>
-  No Date Entered
-<% end %>
-<h4>Date due:</h4>
-<% if @maintenance_log.date_due %>
-  <%= @maintenance_log.date_due.strftime("%b %d, %Y") %><br>
-<% else %>
-   No Date Entered
-<% end %>
-
-<h4>Tools Required:</h4>
-<%= @maintenance_log.tools %><br>
-
-<h4>Cost: $</h4>
-<%= @maintenance_log.cost %><br>
-
-<h4>Notes</h4>
-<%= @maintenance_log.notes %><br>
-<br>
-<%= link_to  "Edit", edit_maintenance_log_path(@maintenance_log) %><br>
-<%= link_to  "Add a New Entry", new_maintenance_log_path %><br>
+<div class="form-group">
+  <div class="col-auto">
+    <h5>Date Performed:</h5>
+    <% if @maintenance_log.date_performed %>
+      <%= @maintenance_log.date_performed.strftime("%b %d, %Y") %><br>
+    <% else %>
+      No Date Entered
+    <% end %>
+  </div>
+  <br>
+  <div class="col-auto">
+    <h5>Date due:</h5>
+    <% if @maintenance_log.date_due %>
+      <%= @maintenance_log.date_due.strftime("%b %d, %Y") %><br>
+    <% else %>
+      No Date Entered
+    <% end %>
+  </div>
+  <br>
+  <div class="col-auto">
+    <h5>Tools Required:</h5>
+    <%= @maintenance_log.tools %><br>
+  </div>
+  <br>
+  <div class="col-auto">
+    <h5>Cost:</h5>
+    $<%= @maintenance_log.cost %><br>
+  </div>
+  <br>
+  <div class="col-auto">
+    <h5>Notes:</h5>
+    <%= @maintenance_log.notes %><br>
+  </div>
+  <br>
+  <div class="col-auto">
+    <%= link_to  "Edit", edit_maintenance_log_path(@maintenance_log) %><br>
+    <%= link_to  "Add a New Entry", new_maintenance_log_path %><br>
+  </div>
+</div>
