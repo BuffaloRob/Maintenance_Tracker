@@ -33,7 +33,7 @@
   </div>
   <br>
   <div class="col-auto">
-    <%= link_to  "Edit", edit_maintenance_category_maintenance_log_path(@maintenance_log.maintenance_category_id, @maintenance_log) %><br>
-    <%= link_to  "Add a New Entry", new_maintenance_log_path %><br>
+    <%= link_to  "Edit", edit_maintenance_category_maintenance_log_path(@maintenance_log.maintenance_category_id, @maintenance_log), html_options = {class: 'badge badge-primary'} %><br>
+    <%= link_to  "Add a New Entry", new_maintenance_log_path, html_options = {class: 'badge badge-primary'} %><br>
   </div>
 </div>
