@@ -1,19 +1,25 @@
 <%= form_for [@maintenance_category, @maintenance_log], :html => {:class => "form-group"} do |f| %>
+  <div class="form-group col-auto">
+    <%= f.label :date_performed, :class => '' %>
+    <%= f.date_select :date_performed, :class => 'form-control' %><br>
+    <%= f.label :date_due, :class => '' %>
+    <%= f.date_select :date_due, :class => 'form-control' %><br>
+  </div>
 
-  <%= f.label :date_performed, :class => 'input-group col-auto' %>
-  <%= f.date_select :date_performed, :class => 'input-group col-auto' %><br>
-  <%= f.label :date_due, :class => 'input-group col-auto' %>
-  <%= f.date_select :date_due, :class => 'input-group col-auto' %><br>
-  <br>
+  <div class="form-group col-auto">
+    <%= f.label :tools, :class => '' %>
+    <%= f.text_field :tools, :class => 'form-control', :placeholder => "Enter Tools" %>
+  </div>
 
-  <%= f.label :tools, :class => 'input-group col-auto' %><br>
-  <%= f.text_field :tools, :class => 'input-group-text col-auto', :placeholder => "Enter Tools" %><br>
+  <div class="form-group col-auto">  
+  <%= f.label :cost, :class => '' %>
+  <%= f.number_field :cost, :class => 'form-control', :placeholder => "Enter Cost" %>
+  </div>
 
-  <%= f.label :cost, :class => 'input-group col-auto' %><br>
-  <%= f.number_field :cost, :class => 'input-group-text col-auto', :placeholder => "Enter Cost" %><br>
-
-  <%= f.label :notes, :class => 'input-group col-auto' %><br>
-  <%= f.text_area :notes, :class => 'input-group-text col-auto', :placeholder => "Enter Any Notes" %><br>
+  <div class="form-group col-auto">  
+  <%= f.label :notes, :class => '' %>
+  <%= f.text_area :notes, :class => 'form-control', :placeholder => "Enter Any Notes" %>
+  </div>
 
   <%= f.submit class: 'btn btn-primary' %>
 <% end %>
