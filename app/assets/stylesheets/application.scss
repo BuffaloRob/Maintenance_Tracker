@@ -13,9 +13,28 @@
  *= require_tree .
  *= require_self
  */
+ 
+ // Variable Overrides
+ $body-bg: #747474;
+ $body-color: #272727;
+ $theme-colors: (
+  "primary": #FF652F,
+  "danger": #14A76C
+);
+
 
  @import "bootstrap";
 
  .alert {
    color: red;
  }
+
+ .text-color {
+   text-color: #FF652F;
+ }
+
+ h3 {
+   color: #FF652F
+ }
+
+
