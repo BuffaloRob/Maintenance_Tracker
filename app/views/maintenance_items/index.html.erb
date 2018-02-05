@@ -1,10 +1,10 @@
 <div class="col-md-4">
   <h3>Maintenance Items</h3>
-  <div class="list-group list-group-flush">
+  <div class="list-group">
     <% @maintenance_items.each do |item| %>
       <li class="d-flex align-items-start flex-md-row">
         <%= link_to item.name, maintenance_item_path(item), html_options = {class: 'list-group-item list-group-item-action list-group-item-light'} %>
-        <span class="badge badge-danger badge-pill"><%= item.maintenance_categories.count %></span>
+        <span class="badge badge-primary badge-pill"><%= item.maintenance_categories.count %></span>
       </li>
       <br>
     <% end %>
