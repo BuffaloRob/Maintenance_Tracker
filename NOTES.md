@@ -43,3 +43,14 @@ Site Flow:
 3) add maintenance_item (car, home)
 4) add maintenance_category to maintenance_item (oil change, replace HVAC filter)
 5) add maintenance_log to maintenance_item (specific instance of oil change, replacing HVAC filter)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+- User Has_many Items
+- Item belongs_to User
+- Item has_many Categories
+- Categories has_many Items ##### Category belongs_to Item
+- Category has_many Logs
+- Log belongs_to Category
+- Log belongs_to Item #####
+
