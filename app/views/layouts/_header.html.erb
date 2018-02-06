@@ -5,7 +5,7 @@
     <a class="navbar-brand" href="/users/sign_in">Sign in</a>
   <% end %>
   <div class="navbar-collapse collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
+    <ul class="navbar-nav">
       <li class="nav_item nav-link">Welcome, <%= current_user.email %></li>
       <li class="nav_item nav-link"><a href="/">Home</a></li>
       <li class="nav_item nav-link"><a href=#>Upcoming</a></li>
@@ -13,6 +13,6 @@
       <li class="nav_item nav-link">
         <%= link_to  "Log Out", destroy_user_session_path, method: :delete %>
       </li>
-    </div>
+    </ul>
   </div>
 </nav>
