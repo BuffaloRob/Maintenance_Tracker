@@ -2,7 +2,7 @@
   <div class="col-auto">
     <h5>Date Performed:</h5>
     <% if @maintenance_log.date_performed %>
-      <%= @maintenance_log.date_performed.strftime("%b %d, %Y") %><br>
+      <%= formatted_date_performed(@maintenance_log) %><br>
     <% else %>
       No Date Entered
     <% end %>
@@ -11,7 +11,7 @@
   <div class="col-auto">
     <h5>Date due:</h5>
     <% if @maintenance_log.date_due %>
-      <%= @maintenance_log.date_due.strftime("%b %d, %Y") %><br>
+      <%= formatted_date_due(@maintenance_log) %><br>
     <% else %>
       No Date Entered
     <% end %>
