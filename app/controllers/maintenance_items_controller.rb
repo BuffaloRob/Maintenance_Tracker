@@ -1,5 +1,6 @@
 class MaintenanceItemsController < ApplicationController
   before_action :set_maintenance_item, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   def index
     if current_user

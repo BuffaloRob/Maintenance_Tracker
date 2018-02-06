@@ -1,5 +1,6 @@
 class MaintenanceLogsController < ApplicationController
   # before_action :set_maintenance_log, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   def index
     if params[:maintenance_category_id]
