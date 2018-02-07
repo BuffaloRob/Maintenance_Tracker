@@ -11,13 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180206175831) do
+ActiveRecord::Schema.define(version: 20180207152312) do
 
   create_table "maintenance_categories", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.integer  "maintenance_item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "maintenance_items", force: :cascade do |t|
@@ -36,9 +35,11 @@ ActiveRecord::Schema.define(version: 20180206175831) do
     t.integer  "maintenance_category_id"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.integer  "maintenance_item_id"
   end
 
   add_index "maintenance_logs", ["maintenance_category_id"], name: "index_maintenance_logs_on_maintenance_category_id"
+  add_index "maintenance_logs", ["maintenance_item_id"], name: "index_maintenance_logs_on_maintenance_item_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
