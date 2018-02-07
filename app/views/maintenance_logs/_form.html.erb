@@ -1,4 +1,13 @@
 <%= form_for [@maintenance_item, @maintenance_log], :html => {:class => "form-group"} do |f| %>
+
+  <div class="form-group col-auto">
+    <p>Add or Select a Category</p>
+    <%= f.collection_check_boxes :maintenance_category_id, MaintenanceCategory.all, :id, :name %><br>
+    <%= f.fields_for :maintenance_category, @maintenance_log.build_maintenance_category do |category| %>
+      <%= category.text_field :name, :class => 'form-control', :placeholder => "Add a New Category" %>
+    <% end %>
+  </div>
+
   <div class="form-group col-auto">
     <%= f.label :date_performed, :class => '' %>
     <%= f.date_select :date_performed, :class => 'form-control' %><br>
