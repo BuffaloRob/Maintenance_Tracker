@@ -12,7 +12,9 @@ MaintenanceLog.destroy_all
 
 tom = User.create(email: 'tom@tom.com', password: 'password', password_confirmation: 'password')
 
-car = MaintenanceItem.create(name: 'GT86', user_id: 1 )
+car = MaintenanceItem.create(name: 'GT86', user_id: 1)
+
+house = MaintenanceItem.create(name: 'House', user_id: 1)
 
 oil_change = MaintenanceCategory.create(name: 'Oil Change')
 
