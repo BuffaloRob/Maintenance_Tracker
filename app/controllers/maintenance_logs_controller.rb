@@ -15,22 +15,21 @@ class MaintenanceLogsController < ApplicationController
   end
 
   def new
-    if params[:maintenance_category_id] && !MaintenanceCategory.exists?(params[:maintenance_category_id])
-      redirect_to root_path, alert: "that category doesn't exist"
+    if params[:maintenance_item_id] && !MaintenanceItem.exists?(params[:maintenance_item_id])
+      redirect_to root_path, alert: "that item doesn't exist"
     else 
-      @maintenance_category = MaintenanceCategory.find(params[:maintenance_category_id])
-      @maintenance_log = @maintenance_category.maintenance_logs.build
+      @maintenance_item = MaintenanceItem.find(params[:maintenance_item_id])
+      @maintenance_log = @maintenance_item.maintenance_logs.build
     end
   end
 
   def create
-    if params[:maintenance_category_id] && !MaintenanceCategory.exists?(params[:maintenance_category_id])
-      redirect_to maintenance_category_path, alert: "that category doesn't exist"
+    if params[:maintenance_item_id] && !MaintenanceItem.exists?(params[:maintenance_item_id])
+      redirect_to maintenance_item_path, alert: "that item doesn't exist"
     else 
-      #Need to also associate with maintenance_item_id
-      @maintenance_category = MaintenanceCategory.find(params[:maintenance_category_id])
       # binding.pry
-      if @maintenance_log = @maintenance_category.maintenance_logs.create(maintenance_log_params)
+      @maintenance_item = MaintenanceItem.find(params[:maintenance_item_id])
+      if @maintenance_log = @maintenance_item.maintenance_logs.create(maintenance_log_params)
         # if params[:maintenance_item_id]
         #   @maintenance_log(maintenance_item_id: params[:maintenance_item_id])
         # end

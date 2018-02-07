@@ -1,4 +1,4 @@
-<%= form_for [@maintenance_category, @maintenance_log], :html => {:class => "form-group"} do |f| %>
+<%= form_for [@maintenance_item, @maintenance_log], :html => {:class => "form-group"} do |f| %>
   <div class="form-group col-auto">
     <%= f.label :date_performed, :class => '' %>
     <%= f.date_select :date_performed, :class => 'form-control' %><br>
