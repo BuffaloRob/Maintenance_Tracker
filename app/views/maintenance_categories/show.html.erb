@@ -3,15 +3,18 @@
   <%= link_to  "Edit #{@maintenance_category.name}", edit_maintenance_category_path(@maintenance_category), html_options = {class: 'badge badge-dark'} %><br>
   <br>
   <div <li class="list-group">
-    <%= @maintenance_category.maintenance_logs.each do |log| %>
-      <li class="d-flex align-items-start flex-md-row">
-        <%= link_to  "Performed on #{formatted_date_performed(log)}" , maintenance_log_path(log), html_options = {class: 'list-group-item list-group-item-action list-group-item-light'} %>
-      </li>
-      <br>
-    <% end %>
+    
+      <%= @maintenance_category.maintenance_logs.each do |log| %>
+        <% unless log.date_performed.nil? %>
+          <li class="d-flex align-items-start flex-md-row">
+            <%= link_to  "Performed on #{formatted_date_performed(log)}" , maintenance_log_path(log), html_options = {class: 'list-group-item list-group-item-action list-group-item-light'} %>
+          </li>
+          <br>
+        <% end %>
+      <% end %>
   </div>
   <br>
-  <%= link_to  "Back to Categories", maintenance_item_path(@maintenance_category.maintenance_item_id), html_options = {class: 'badge badge-primary'} %><br>
+
   <%= link_to  "Add a New Log for #{@maintenance_category.name}", 
   new_maintenance_category_maintenance_log_path(@maintenance_category), html_options = {class: 'badge badge-primary'} %><br>
 
