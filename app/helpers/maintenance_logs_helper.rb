@@ -8,10 +8,6 @@ module MaintenanceLogsHelper
     maintenance_log.date_due.strftime("%b %d, %Y")
   end
 
-  def upcoming_work
-    #returns list of all maintenance categories that are due in the next month
-  end
-
   def time_entered?
     #returns true if date_performed/date_due exists
   end
