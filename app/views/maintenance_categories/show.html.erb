@@ -11,7 +11,9 @@
     <% end %>
   </div>
   <br>
+  <%= link_to  "Back to Categories", maintenance_item_path(@maintenance_category.maintenance_item_id), html_options = {class: 'badge badge-primary'} %><br>
   <%= link_to  "Add a New Log for #{@maintenance_category.name}", 
   new_maintenance_category_maintenance_log_path(@maintenance_category), html_options = {class: 'badge badge-primary'} %><br>
+
   
 </div>
