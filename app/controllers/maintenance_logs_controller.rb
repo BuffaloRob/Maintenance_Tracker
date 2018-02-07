@@ -88,7 +88,7 @@ class MaintenanceLogsController < ApplicationController
   # end
 
   def maintenance_log_params
-    params.require(:maintenance_log).permit(:notes, :tools, :cost, :date_performed, :date_due, :maintenance_category_id, :maintenance_item_id)
+    params.require(:maintenance_log).permit(:notes, :tools, :cost, :date_performed, :date_due, :maintenance_item_id, maintenance_category_id:[], category_attributes: [:name] )
   end
 
 end
