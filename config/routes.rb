@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :maintenance_logs
   resources :maintenance_categories 
   devise_for :users
+
+  get 'past_due', to: "maintenance_logs#past_due"
+  get 'upcoming', to: "maintenance_logs#upcoming"
   
   root "maintenance_items#index"
   # The priority is based upon order of creation: first created -> highest priority.
