@@ -1,0 +1,7 @@
+<div class="col-md-6">
+  <h3>Past Due</h3>
+  
+  <%= @maintenance_logs.past_due.each do |log| %>
+    <%= link_to  "#{log.maintenance_category.name} Was due on #{formatted_date_due(log)}", maintenance_log_path(log) %><br>
+  <% end %>
+</div>
