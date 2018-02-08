@@ -28,7 +28,7 @@ class MaintenanceLogsController < ApplicationController
     else 
       @maintenance_item = MaintenanceItem.find(params[:maintenance_item_id])
       if @maintenance_log = @maintenance_item.maintenance_logs.create(maintenance_log_params)
-        redirect_to maintenance_log_path(@maintenance_log)
+        redirect_to maintenance_item_maintenance_log_path(@maintenance_item, @maintenance_log)
       else
         render :new
       end
