@@ -27,12 +27,8 @@ class MaintenanceLogsController < ApplicationController
     if params[:maintenance_item_id] && !MaintenanceItem.exists?(params[:maintenance_item_id])
       redirect_to maintenance_item_path, alert: "that item doesn't exist"
     else 
-      # binding.pry
       @maintenance_item = MaintenanceItem.find(params[:maintenance_item_id])
       if @maintenance_log = @maintenance_item.maintenance_logs.create(maintenance_log_params)
-        # if params[:maintenance_item_id]
-        #   @maintenance_log(maintenance_item_id: params[:maintenance_item_id])
-        # end
         redirect_to maintenance_log_path(@maintenance_log)
       else
         render :new
@@ -88,7 +84,7 @@ class MaintenanceLogsController < ApplicationController
   # end
 
   def maintenance_log_params
-    params.require(:maintenance_log).permit(:notes, :tools, :cost, :date_performed, :date_due, :maintenance_item_id, maintenance_category_id:[], category_attributes: [:name] )
+    params.require(:maintenance_log).permit(:notes, :tools, :cost, :date_performed, :date_due, :maintenance_item_id, :maintenance_category_id, maintenance_category_attributes: [:name] )
   end
 
 end
