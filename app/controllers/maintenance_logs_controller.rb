@@ -1,5 +1,4 @@
 class MaintenanceLogsController < ApplicationController
-  # before_action :set_maintenance_log, only: [:show, :edit, :update, :destroy]
 
   def index
     if params[:maintenance_category_id]
@@ -78,10 +77,6 @@ class MaintenanceLogsController < ApplicationController
   end
 
   private
-
-  # def set_maintenance_log
-  #   @maintenance_log = MaintenanceLog.find(params[:id])
-  # end
 
   def maintenance_log_params
     params.require(:maintenance_log).permit(:notes, :tools, :cost, :date_performed, :date_due, :maintenance_item_id, :maintenance_category_id, maintenance_category_attributes: [:name] )
