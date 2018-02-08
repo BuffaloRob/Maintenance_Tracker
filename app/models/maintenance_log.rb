@@ -3,9 +3,9 @@ class MaintenanceLog < ActiveRecord::Base
   belongs_to :maintenance_item
   accepts_nested_attributes_for :maintenance_category #reject_if: category_blank?
 
-  def category_attributes=(category_attribute)
-    category = Category.find_or_create_by(category_attribute)
-    self.maintenance_category << category 
+  def maintenance_category_attributes=(category_attributes)
+    category = MaintenanceCategory.find_or_create_by(category_attributes)
+    self.maintenance_category = category 
   end
 
   def category_blank?(att)
@@ -14,7 +14,7 @@ class MaintenanceLog < ActiveRecord::Base
 
   def self.past_due
     #returns list of all logs that are past due
-    where("date_due <=?", Time.zone.today.end_of_day)
+    where("date_due <=?", Time.now)
   end
 
   def self.upcoming
