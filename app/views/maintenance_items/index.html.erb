@@ -4,7 +4,7 @@
     <% @maintenance_items.each do |item| %>
       <li class="d-flex align-items-start flex-md-row">
         <%= link_to item.name, maintenance_item_path(item), html_options = {class: 'list-group-item list-group-item-action list-group-item-light'} %>
-        <span class="badge badge-primary badge-pill"><%= item.maintenance_categories.count %></span>
+        <span class="badge badge-primary badge-pill"><%= item.maintenance_logs.past_due.count %></span>
       </li>
       <br>
     <% end %>
