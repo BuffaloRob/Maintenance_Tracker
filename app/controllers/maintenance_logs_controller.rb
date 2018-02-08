@@ -1,5 +1,13 @@
 class MaintenanceLogsController < ApplicationController
 
+  def past_due
+    @maintenance_logs = MaintenanceLog.all
+  end
+
+  def upcoming
+    @maintenance_logs = MaintenanceLog.all
+  end
+
   def index
     if params[:maintenance_category_id]
       @maintenance_category = MaintenanceCategory.find_by(id: params[:maintenance_category_id])
