@@ -51,7 +51,6 @@ group :development do
   gem 'pry'
   gem 'capybara'
   gem 'rspec-rails'
-  gem 'figaro'
   
 end
 
