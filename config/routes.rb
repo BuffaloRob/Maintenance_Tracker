@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
 ### Need to edit routes so that you can't create a maintenance category unless it's associated with an item and you can't create a log unless it's associated with a category
+  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
   resources :maintenance_items do
     resources :maintenance_logs, only: [:index, :show, :new, :edit, :create]
     resources :maintenance_categories, only: [:index, :show, :new, :edit, :create]
   end 
   resources :maintenance_logs
   resources :maintenance_categories 
-  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
 
   get 'past_due', to: "maintenance_logs#past_due"
   get 'upcoming', to: "maintenance_logs#upcoming"
