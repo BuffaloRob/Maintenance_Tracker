@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end 
   resources :maintenance_logs
   resources :maintenance_categories 
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
 
   get 'past_due', to: "maintenance_logs#past_due"
   get 'upcoming', to: "maintenance_logs#upcoming"
