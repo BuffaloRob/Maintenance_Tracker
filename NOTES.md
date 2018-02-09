@@ -53,4 +53,9 @@ Site Flow:
 - Category has_many Logs
 - Log belongs_to Category
 - Log belongs_to Item #####
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+Validation Errors:
+
+1) date_performed shouldn't be allowed to be future date
+2) cost should only be a number
