@@ -1,11 +1,14 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark justify-content-between">
   <% if user_signed_in? %>
-    <a class="navbar-brand">MT</a>
-    <div class="navbar-collapse collapse" id="navbarNavAltMarkup">
+    <div class="d-flex">
+      <a class="navbar-brand">MT</a>
+    </div>
+    <button class="navbar-toggler order-3" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse justify-content-between" id="collapsingNavbar">
+      <div><!--placeholder to evenly space flexbox items and center links--></div>
       <ul class="navbar-nav">
-        <li class="nav_item nav-link">Welcome,
-          <%= current_user.email %>
-        </li>
         <li class="nav_item nav-link">
           <a href="/">Home</a>
         </li>
@@ -19,9 +22,14 @@
           <%= link_to  "Log Out", destroy_user_session_path, method: :delete %>
         </li>
       </ul>
+      <ul class="nav navbar-nav flex-row">
+        <li class="nav_item nav-link">Welcome,
+          <%= current_user.email %>
+        </li>
+      </ul>
     </div>
   <% else %>
-    <a class="navbar-brand" href="/users/sign_in">Sign in</a>
+    <a class="navbar-brand mx-auto" href="/users/sign_in">Sign in</a>
   <% end %>
 
 </nav>
