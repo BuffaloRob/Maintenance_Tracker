@@ -26,6 +26,7 @@ Features:
 8) Can use camera phone to auto populate tech data from a manual (think of what evernote does with business cards or apple does with credit cards)
 9) Create 'Mechanic's Access' to allow mechanics the ability to add entries that a User shares with them. They can edit any entry they make but no others.
 10) Timestamps for important fields to prevent/show tampering
+11) Grab meta data from photo to verify date maintenance was performed. Maybe incorporate this into blockchain somehow to make it so you cannot tamper with the data. If a user did have to make an honest edit they easily could, it would just be highly visible on that record that an edit was made. There should be a large, easily seen, button at the top of page that when pressed will show the edits highlighted on the page and when the edit was performed.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
