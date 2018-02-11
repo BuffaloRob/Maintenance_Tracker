@@ -1,5 +1,8 @@
 Problems:
-1) Need to edit routes so that you can't create a maintenance category unless it's associated with an item and you can't create a log unless it's associated with a category
+1) make validations
+  - date_performed shouldn't be allowed to be future date
+
+2) make past_due/upcoming show just the current_users maintenance_logs, not all maintenance_logs belonging to all users
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Messages:
@@ -58,5 +61,4 @@ Site Flow:
 
 Validation Errors:
 
-1) date_performed shouldn't be allowed to be future date
-2) cost should only be a number
+2) 
