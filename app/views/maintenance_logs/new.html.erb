@@ -1,6 +1,4 @@
-<div class="mx-auto col-sm-6">
-  <h3>Add a New Log for <%= @maintenance_log.maintenance_item.name %></h3>
+<h3>Add a New Log for <%= @maintenance_log.maintenance_item.name %></h3>
 
-  <%= render 'form' %>
-  <%= link_to  "Back to Logs for #{@maintenance_log.maintenance_item.name}", maintenance_item_path(@maintenance_log.maintenance_item_id), html_options = {class: 'badge badge-primary'} %><br>
-</div>
+<%= render 'form' %>
+<%= link_to  "Back to Logs for #{@maintenance_log.maintenance_item.name}", maintenance_item_path(@maintenance_log.maintenance_item_id), html_options = {class: 'badge badge-primary'} %><br>

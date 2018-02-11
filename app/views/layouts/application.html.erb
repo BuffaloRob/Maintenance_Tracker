@@ -9,9 +9,12 @@
 <body>
 
 <%= render 'layouts/header' %>
+<div class="mx-auto col-sm-6">
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-<%= yield %>
+
+  <%= yield %>
+</div>
 
 </body>
 </html>

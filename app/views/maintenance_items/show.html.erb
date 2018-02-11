@@ -1,18 +1,17 @@
-<div class="mx-auto col-sm-6">
-  <h3><%= @maintenance_item.name.pluralize %> Maintenance Categories</h3> 
-  <%= link_to  "Edit #{@maintenance_item.name}", edit_maintenance_item_path(@maintenance_item), html_options = {class: 'badge badge-dark'} %><br>
-  <br>
 
-  <div class="list-group">
-    <% @maintenance_item.maintenance_categories.uniq.each do |category| %>
-      <li class="d-flex align-items-start flex-md-row">
-      <%= link_to  category.name, maintenance_item_maintenance_category_path(@maintenance_item, category), html_options = {class: 'list-group-item list-group-item-action list-group-item-light'} %>
-      <span class="badge badge-primary badge-pill"><%= category.maintenance_logs.past_due.count %></span>
-      </li>
-      <br>
-    <% end %>
-  </div>
-  <br>
-  <%= link_to  "Back To Maintenance Items", maintenance_items_path, html_options = {class: 'badge badge-primary'} %><br>
-  <%= link_to  "Add a New Maintenance Log", new_maintenance_item_maintenance_log_path(@maintenance_item), html_options = {class: 'badge badge-primary'} %><br>
+<h3>Maintenance Categories for <%= @maintenance_item.name %> </h3> 
+<%= link_to  "Edit #{@maintenance_item.name}", edit_maintenance_item_path(@maintenance_item), html_options = {class: 'badge badge-dark'} %><br>
+<br>
+
+<div class="list-group">
+  <% @maintenance_item.maintenance_categories.uniq.each do |category| %>
+    <li class="d-flex align-items-start flex-md-row">
+    <%= link_to  category.name, maintenance_item_maintenance_category_path(@maintenance_item, category), html_options = {class: 'list-group-item list-group-item-action list-group-item-light'} %>
+    <span class="badge badge-primary badge-pill"><%= category.maintenance_logs.past_due.count %></span>
+    </li>
+    <br>
+  <% end %>
 </div>
+<br>
+<%= link_to  "Back To Maintenance Items", maintenance_items_path, html_options = {class: 'badge badge-primary'} %><br>
+<%= link_to  "Add a New Maintenance Log", new_maintenance_item_maintenance_log_path(@maintenance_item), html_options = {class: 'badge badge-primary'} %><br>
