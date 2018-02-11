@@ -1,5 +1,6 @@
 
 <h3>Maintenance Categories for <%= @maintenance_item.name %> </h3> 
+
 <%= link_to  "Edit #{@maintenance_item.name}", edit_maintenance_item_path(@maintenance_item), html_options = {class: 'badge badge-dark'} %><br>
 <br>
 
@@ -12,6 +13,6 @@
     <br>
   <% end %>
 </div>
-<br>
+
 <%= link_to  "Back To Maintenance Items", maintenance_items_path, html_options = {class: 'badge badge-primary'} %><br>
 <%= link_to  "Add a New Maintenance Log", new_maintenance_item_maintenance_log_path(@maintenance_item), html_options = {class: 'badge badge-primary'} %><br>

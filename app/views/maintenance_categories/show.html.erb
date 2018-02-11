@@ -1,7 +1,9 @@
 
 <h3>Logs for <%= @maintenance_category.name %></h3>
+
 <%= link_to  "Edit #{@maintenance_category.name}", edit_maintenance_category_path(@maintenance_category), html_options = {class: 'badge badge-dark'} %><br>
 <br>
+
 <div <li class="list-group"> 
   <%= @maintenance_category.maintenance_logs.each do |log| %>
     <% unless log.date_performed.nil? %>
@@ -13,5 +15,6 @@
   <% end %>
 </div>
 <br>
+
 <%= link_to "Back to #{@maintenance_item.name}", maintenance_item_path(@maintenance_item) %><br>
 <%= link_to  "Add a new log entry", new_maintenance_item_maintenance_log_path(@maintenance_item) %>

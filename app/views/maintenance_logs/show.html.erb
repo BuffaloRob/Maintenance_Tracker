@@ -1,5 +1,6 @@
 <div class="form-group">
   <h3>Log for <%= @maintenance_log.maintenance_category.name %></h3>
+
   <div class="col-auto">
     <h5>Date Performed:</h5>
     <% if @maintenance_log.date_performed %>
@@ -9,6 +10,7 @@
     <% end %>
   </div>
   <br>
+
   <div class="col-auto">
     <h5>Date due:</h5>
     <% if @maintenance_log.date_due %>
@@ -18,21 +20,25 @@
     <% end %>
   </div>
   <br>
+
   <div class="col-auto">
     <h5>Tools Required:</h5>
     <%= @maintenance_log.tools %><br>
   </div>
   <br>
+
   <div class="col-auto">
     <h5>Cost:</h5>
     $<%= @maintenance_log.cost %><br>
   </div>
   <br>
+
   <div class="col-auto">
     <h5>Notes:</h5>
     <%= @maintenance_log.notes %><br>
   </div>
   <br>
+  
   <div class="col-auto">
     <%= link_to  "Back to Logs for #{@maintenance_log.maintenance_item.name}", maintenance_item_path(@maintenance_log.maintenance_item_id), html_options = {class: 'badge badge-primary'} %><br>
     <%= link_to  "Edit", edit_maintenance_item_maintenance_log_path(@maintenance_log.maintenance_item_id, @maintenance_log), html_options = {class: 'badge badge-primary'} %><br>
