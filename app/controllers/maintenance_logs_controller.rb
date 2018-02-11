@@ -1,11 +1,23 @@
 class MaintenanceLogsController < ApplicationController
 
   def past_due
-    @maintenance_logs = MaintenanceLog.all
+    @current_user_maintenance_logs = []
+    @maintenance_items = current_user.maintenance_items
+    @maintenance_items.each do |item|
+      item.maintenance_logs.past_due.each do |log|
+        @current_user_maintenance_logs << log
+      end
+    end
   end
 
   def upcoming
-    @maintenance_logs = MaintenanceLog.all
+    @current_user_maintenance_logs = []
+    @maintenance_items = current_user.maintenance_items
+    @maintenance_items.each do |item|
+      item.maintenance_logs.upcoming.each do |log|
+        @current_user_maintenance_logs << log
+      end
+    end
   end
 
   def index
