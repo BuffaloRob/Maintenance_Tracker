@@ -2,8 +2,8 @@ Problems:
 1) make validations
   - date_performed shouldn't be allowed to be future date
 
-2) make past_due/upcoming show just the current_users maintenance_logs, not all maintenance_logs belonging to all users
-3) Add delete buttons for item, category and logs
+2) Add delete buttons for item, category and logs
+3) new log form shouldn't show categories belonging to other users
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Messages:
