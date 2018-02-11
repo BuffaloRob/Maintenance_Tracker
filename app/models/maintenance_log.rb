@@ -1,6 +1,7 @@
 class MaintenanceLog < ActiveRecord::Base
   belongs_to :maintenance_category
   belongs_to :maintenance_item
+  validates :cost, numericality: true
   # accepts_nested_attributes_for :maintenance_category, reject_if: category_blank?
 
   def maintenance_category_attributes=(category_attributes)
