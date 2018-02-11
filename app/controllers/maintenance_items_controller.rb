@@ -20,7 +20,7 @@ class MaintenanceItemsController < ApplicationController
       redirect_to maintenance_item_path(@maintenance_item)
     else
       @maintenance_items = MaintenanceItem.all
-      redirect_to maintenance_items_path, alert: "Please enter a valid item"
+      redirect_to new_maintenance_item_path, alert: "Please enter a valid item"
     end
   end
 
