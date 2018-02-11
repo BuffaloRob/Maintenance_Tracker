@@ -26,10 +26,9 @@ class MaintenanceLog < ActiveRecord::Base
 
   def self.current_user_logs
     @current_logs=[]
-    @items = current_user.maintenance_items.all
+    @items = current_user.maintenance_items
     @items.each do |item|
-      @logs = item.maintenance_logs.all
-      @logs.each do |log|
+      item.maintenance_logs.each do |log|
        @current_logs << log
       end
     end
