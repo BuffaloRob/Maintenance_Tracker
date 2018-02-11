@@ -1,0 +1,5 @@
+<h3>Upcoming Work</h3>
+
+<%= @maintenance_logs.upcoming.each do |log| %>
+  <%= link_to  "#{log.maintenance_category.name} Will be due on #{formatted_date_due(log)}", maintenance_log_path(log) %><br>
+<% end %>

@@ -10,12 +10,16 @@ MaintenanceItem.destroy_all
 MaintenanceCategory.destroy_all
 MaintenanceLog.destroy_all
 
-tom = User.create(email: 'tom@tom.com', password: 'password', password_confirmation: 'password')
+User.create(email: 'tom@tom.com', password: 'password', password_confirmation: 'password')
 
-car = MaintenanceItem.create(name: 'GT86', user_id: 1 )
+MaintenanceItem.create(name: 'GT86', user_id: 1)
 
-oil_change = MaintenanceCategory.create(name: 'Oil Change')
+MaintenanceItem.create(name: 'House', user_id: 1)
 
-join_table = ItemCategory.create(maintenance_item_id: 1, maintenance_category_id: 1)
+MaintenanceCategory.create(name: 'Oil Change')
 
-log1 = MaintenanceLog.create(date_performed: 10.days.ago, date_due: Time.now, tools: 'wrench, rags, drip pan', cost: 40, notes: 'sample note', maintenance_category_id: 1, maintenance_item_id: 1)
+MaintenanceCategory.create(name: 'HVAC Filters')
+
+MaintenanceLog.create(date_performed: 200.days.ago, date_due: Time.now, tools: 'wrench, rags, drip pan', cost: 40, notes: 'oil change note', maintenance_category_id: 1, maintenance_item_id: 1)
+
+MaintenanceLog.create(date_performed: 120.days.ago, date_due: 20.days.from_now, tools: 'screwdriver', cost: 20, notes: 'HVAC note', maintenance_category_id: 2, maintenance_item_id: 2)

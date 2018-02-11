@@ -31,7 +31,7 @@ class MaintenanceCategoriesController < ApplicationController
     else
       @maintenance_item = MaintenanceItem.find(params[:maintenance_item_id])
       if @maintenance_category = @maintenance_item.maintenance_categories.create(maintenance_category_params)
-        redirect_to maintenance_category_path(@maintenance_category)
+        redirect_to maintenance_item_maintenance_category_path(@maintenance_item, @maintenance_category)
       else 
         render :new
       end
@@ -56,6 +56,7 @@ class MaintenanceCategoriesController < ApplicationController
   end
 
   def show
+    
     if params[:maintenance_item_id]
       @maintenance_item = MaintenanceItem.find_by(id: params[:maintenance_item_id])
       @maintenance_category = @maintenance_item.maintenance_categories.find_by(id: params[:id])

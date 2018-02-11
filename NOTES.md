@@ -1,5 +1,9 @@
 Problems:
-1) Need to edit routes so that you can't create a maintenance category unless it's associated with an item and you can't create a log unless it's associated with a category
+1) make validations
+  - date_performed shouldn't be allowed to be future date
+
+2) make past_due/upcoming show just the current_users maintenance_logs, not all maintenance_logs belonging to all users
+3) Add delete buttons for item, category and logs
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Messages:
@@ -26,6 +30,7 @@ Features:
 8) Can use camera phone to auto populate tech data from a manual (think of what evernote does with business cards or apple does with credit cards)
 9) Create 'Mechanic's Access' to allow mechanics the ability to add entries that a User shares with them. They can edit any entry they make but no others.
 10) Timestamps for important fields to prevent/show tampering
+11) Grab meta data from photo to verify date maintenance was performed. Maybe incorporate this into blockchain somehow to make it so you cannot tamper with the data. If a user did have to make an honest edit they easily could, it would just be highly visible on that record that an edit was made. There should be a large, easily seen, button at the top of page that when pressed will show the edits highlighted on the page and when the edit was performed.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -43,3 +48,18 @@ Site Flow:
 3) add maintenance_item (car, home)
 4) add maintenance_category to maintenance_item (oil change, replace HVAC filter)
 5) add maintenance_log to maintenance_item (specific instance of oil change, replacing HVAC filter)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+- User Has_many Items
+- Item belongs_to User
+- Item has_many Categories
+- Categories has_many Items ##### Category belongs_to Item
+- Category has_many Logs
+- Log belongs_to Category
+- Log belongs_to Item #####
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Validation Errors:
+
+2) 
