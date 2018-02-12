@@ -18,6 +18,7 @@ class MaintenanceLogsController < ApplicationController
         @current_user_maintenance_logs << log
       end
     end
+    # binding.pry
   end
 
   def index
@@ -67,8 +68,8 @@ class MaintenanceLogsController < ApplicationController
   end
 
   def destroy
-    @maintenance_log.destroy
-    redirect_to maintenance_logs_path
+    MaintenanceLog.find(params[:id]).destroy
+    redirect_to :root
   end
 
   def show
