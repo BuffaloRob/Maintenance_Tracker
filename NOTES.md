@@ -1,9 +1,6 @@
 Problems:
-1) make validations
-  - date_performed shouldn't be allowed to be future date
-
-2) Add delete buttons for item, category and logs
-3) new log form shouldn't show categories belonging to other users
+1) figure out problem with 'upcoming' link
+2) new log form shouldn't show categories belonging to other users
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Messages:
