@@ -50,8 +50,8 @@ class MaintenanceCategoriesController < ApplicationController
   end
 
   def destroy
-    @maintenance_category.destroy
-    redirect_to maintenance_categories_path
+    MaintenanceCategory.find(params[:id]).destroy
+    redirect_to :root
   end
 
   def show
