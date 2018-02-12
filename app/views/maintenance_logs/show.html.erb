@@ -42,6 +42,7 @@
   <div class="col-auto">
     <%= link_to  "Back to Logs for #{@maintenance_log.maintenance_item.name}", maintenance_item_path(@maintenance_log.maintenance_item_id), html_options = {class: 'badge badge-primary'} %><br>
     <%= link_to  "Edit", edit_maintenance_item_maintenance_log_path(@maintenance_log.maintenance_item_id, @maintenance_log), html_options = {class: 'badge badge-primary'} %><br>
+    <%= link_to  "Delete this log entry", @maintenance_log, method: :delete, data: { confirm: "You sure?"}, class: "badge badge-primary" %><br>
     <%= link_to  "Add a New Entry", new_maintenance_item_maintenance_log_path(@maintenance_log.maintenance_item_id), html_options = {class: 'badge badge-primary'} %><br>
   </div>
 </div>
