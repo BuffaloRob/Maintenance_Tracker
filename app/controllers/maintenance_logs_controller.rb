@@ -47,7 +47,8 @@ class MaintenanceLogsController < ApplicationController
       redirect_to maintenance_item_path, alert: "that item doesn't exist"
     else 
       @maintenance_item = MaintenanceItem.find(params[:maintenance_item_id])
-      if @maintenance_log = @maintenance_item.maintenance_logs.create(maintenance_log_params)
+      @maintenance_log = @maintenance_item.maintenance_logs.create(maintenance_log_params)
+      if @maintenance_log.valid?
         redirect_to maintenance_item_maintenance_log_path(@maintenance_item, @maintenance_log)
       else
         render :new
