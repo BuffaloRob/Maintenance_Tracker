@@ -1,3 +1,19 @@
+<% if @maintenance_item.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@maintenance_item.errors.count, "error") %> prohibited this log from being saved:
+    </h2>
+
+    <ul>
+      <% @maintenance_item.errors.full_messages.each do |msg| %>
+        <li>
+          <%= msg %>
+        </li>
+        <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for @maintenance_item, :html => {:class => "form-group"} do |f| %>
   
   <%= f.text_field :name, :class => 'form-control', :placeholder => "Enter New Maintenance Item Name" %><br>
