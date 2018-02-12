@@ -1,6 +1,5 @@
 class MaintenanceItemsController < ApplicationController
   before_action :set_maintenance_item, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
 
   def index
     if current_user
@@ -19,8 +18,9 @@ class MaintenanceItemsController < ApplicationController
     if @maintenance_item.save
       redirect_to maintenance_item_path(@maintenance_item)
     else
-      @maintenance_items = MaintenanceItem.all
-      redirect_to new_maintenance_item_path, alert: "Please enter a valid item"
+      render :new
+      # @maintenance_items = MaintenanceItem.all
+      # redirect_to new_maintenance_item_path, alert: "Please enter a valid maintenance item"
     end
   end
 
