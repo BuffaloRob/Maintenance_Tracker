@@ -7,8 +7,10 @@
 <div class="list-group">
   <% @maintenance_item.maintenance_categories.uniq.each do |category| %>
     <li class="d-flex align-items-start flex-md-row">
-    <%= link_to  category.name, maintenance_item_maintenance_category_path(@maintenance_item, category), html_options = {class: 'list-group-item list-group-item-action list-group-item-light'} %>
-    <span class="badge badge-primary badge-pill"><%= category.maintenance_logs.past_due.count %></span>
+      <span class="badge badge-primary badge-pill">
+        <%= category.maintenance_logs.past_due.count %>
+      </span>
+      <%= link_to  category.name, maintenance_item_maintenance_category_path(@maintenance_item, category), html_options = {class: 'list-group-item list-group-item-action list-group-item-light'} %>
     </li>
     <br>
   <% end %>
