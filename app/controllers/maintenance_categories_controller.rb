@@ -1,6 +1,5 @@
 class MaintenanceCategoriesController < ApplicationController
   # before_action :set_maintenance_category, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
 
   def index
     if params[:maintenance_item_id]
