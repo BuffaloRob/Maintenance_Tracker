@@ -22,18 +22,27 @@
   "danger": #14A76C
 );
 
- @import "bootstrap";
+@import "bootstrap";
 
- .alert {
+.alert {
    color: red;
  }
 
- h3 {
+h3 {
    color: #FF652F
  }
 
-  h5 {
+h5 {
    color: #FF652F
  }
 
+.field_with_errors {
+  padding: 2px;
+  background-color: #14A76C;
+  display: table;
+}
+
+#error_explanation {
+  color: #14A76C;
+}
 
