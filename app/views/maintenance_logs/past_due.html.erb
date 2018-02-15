@@ -1,5 +1,9 @@
 <h3>Past Due</h3>
 
-<%= @current_user_maintenance_logs.each do |log| %>
+<% if @current_user_maintenance_logs.any? %>
+  <%= @current_user_maintenance_logs.each do |log| %>
     <%= link_to  "#{log.maintenance_category.name} Was due on #{formatted_date_due(log)}", maintenance_log_path(log) %><br>
+  <% end %>
+<% else %>
+  <p>You're an adequate mechanic, nothing is past due</p>
 <% end %>
