@@ -6,8 +6,12 @@ class MaintenanceLog < ActiveRecord::Base
   # accepts_nested_attributes_for :maintenance_category, reject_if: category_blank?
 
   def maintenance_category_attributes=(category_attributes)
-    #check to make sure either radio pressed or name typed in, can only be one or the other
-    category = MaintenanceCategory.find_or_create_by(category_attributes)
+    #ensures that radio button only used if the fill in the name spot is empty
+    if category_attributes[:name].empty?
+      category = MaintenanceCategory.find_by(id: category_attributes[:id])
+    else
+      category = MaintenanceCategory.find_or_create_by(name: category_attributes[:name])
+    end
     self.maintenance_category = category 
   end
 
