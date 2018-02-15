@@ -18,7 +18,6 @@ class MaintenanceLogsController < ApplicationController
         @current_user_maintenance_logs << log
       end
     end
-    # binding.pry
   end
 
   def index
@@ -101,7 +100,7 @@ class MaintenanceLogsController < ApplicationController
   private
 
   def maintenance_log_params
-    params.require(:maintenance_log).permit(:notes, :tools, :cost, :date_performed, :date_due, :maintenance_item_id, :maintenance_category_id, maintenance_category_attributes: [:name] )
+    params.require(:maintenance_log).permit(:notes, :tools, :cost, :date_performed, :date_due, :maintenance_item_id, :maintenance_category_id, maintenance_category_attributes: [:name, :id] )
   end
 
 end
