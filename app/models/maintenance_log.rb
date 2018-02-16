@@ -1,9 +1,13 @@
 class MaintenanceLog < ActiveRecord::Base
   belongs_to :maintenance_category
+  validates_presence_of :maintenance_category
+  # validates_associated :maintenance_category
+
   belongs_to :maintenance_item
   validates :cost, numericality: true
   validate :starts_after_today?, :due_before_start?
-  # accepts_nested_attributes_for :maintenance_category, reject_if: category_blank?
+  
+  # validate :category_empty?
 
   def maintenance_category_attributes=(category_attributes)
     #ensures that radio button only used if the fill in the name spot is empty
@@ -14,6 +18,12 @@ class MaintenanceLog < ActiveRecord::Base
     end
     self.maintenance_category = category 
   end
+
+  # def category_empty?
+  #   if category_attributes[:name].empty? && category_attributes[:id].empty?
+  #     errors.add(???, 'A category must be selected')
+  #   end
+  # end
 
   def starts_after_today?
     if date_performed.present? && date_performed > Date.today
