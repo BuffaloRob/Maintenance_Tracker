@@ -1,6 +1,8 @@
 Problems:
-1) protect against a blank category
+1) categories show page should list logs in chronicological order
 2) new log form shouldn't show categories belonging to other users
+3) if a new log is entered in a category that was overdue, then that category should be 'checked off' and no longer show as overdue
+
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Messages:
