@@ -1,5 +1,5 @@
 Problems:
-1) figure out problem with 'upcoming' link
+1) protect against a blank category
 2) new log form shouldn't show categories belonging to other users
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
