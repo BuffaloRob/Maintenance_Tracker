@@ -1,9 +1,7 @@
 class MaintenanceLog < ActiveRecord::Base
-  belongs_to :maintenance_category
-  validates_presence_of :maintenance_category
-  # validates_associated :maintenance_category
-
   belongs_to :maintenance_item
+  belongs_to :maintenance_category
+  validates :maintenance_category, presence: true
   validates :cost, numericality: true
   validate :starts_after_today?, :due_before_start?
 
