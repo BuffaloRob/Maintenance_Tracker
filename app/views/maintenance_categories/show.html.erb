@@ -16,5 +16,5 @@
 </div>
 <br>
 
-<%= link_to "Back to #{@maintenance_item.name}", maintenance_item_path(@maintenance_item) %><br>
-<%= link_to  "Add a new log entry", new_maintenance_item_maintenance_log_path(@maintenance_item) %>
+<%= link_to "Back to #{@maintenance_item.name}", maintenance_item_path(@maintenance_item), html_options = {class: 'badge badge-primary'} %><br>
+<%= link_to  "Add a new log entry", new_maintenance_item_maintenance_log_path(@maintenance_item), html_options = {class: 'badge badge-primary'} %>
