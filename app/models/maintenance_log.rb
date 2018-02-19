@@ -33,12 +33,12 @@ class MaintenanceLog < ActiveRecord::Base
 
   def self.past_due
     #returns list of all logs that are past due
-    where("date_due <=?", Time.now)
+    where("date_due <=?", Time.current)
   end
 
   def self.upcoming
     #returns list of all logs that'll be due in the next month
-    where("date_due <=?", Time.now + 30.days)
+    where("date_due <=?", Time.current + 30.days)
   end
 
   # def self.current_user_logs
