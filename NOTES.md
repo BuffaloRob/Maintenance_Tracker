@@ -2,6 +2,8 @@ Problems:
 1) categories show page should list logs in chronicological order
 2) new log form shouldn't show categories belonging to other users
 3) if a new log is entered in a category that was overdue, then that category should be 'checked off' and no longer show as overdue
+4) Users sharing a category show each others logs
+5) Pages break when you manual type in a item/cat/log_id that doesn't exist in the URL
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
