@@ -19,7 +19,7 @@
   <div class="form-group col-auto">
     <p>Add or Select a Category</p>
     <%= f.fields_for :maintenance_category, @maintenance_log.build_maintenance_category do |category| %>
-      <%= category.collection_radio_buttons :id, MaintenanceCategory.all, :id, :name %><br>
+      <%= category.collection_radio_buttons :id, @maintenance_item.maintenance_categories, :id, :name %><br>
       <%= category.text_field :name, :class => 'form-control', :placeholder => "Add a New Category" %>
     <% end %>
   </div>
