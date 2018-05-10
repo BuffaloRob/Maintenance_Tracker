@@ -12,7 +12,7 @@
       </span>
       <%= link_to  category.name, maintenance_item_maintenance_category_path(@maintenance_item, category), html_options = {class: 'list-group-item list-group-item-action list-group-item-light'} %>
 
-      <%= link_to  "Show Logs", maintenance_category_path(category), id: "logBtn_#{category.id}" ,class: 'btn align-self-center badge badge-primary' %>
+      <%= link_to  "Show Logs", maintenance_item_maintenance_category_path(@maintenance_item, category), id: "logBtn_#{category.id}" ,class: 'btn align-self-center badge badge-primary' %>
     </li>
     <br>
     <div class='viewLogs'></div>
