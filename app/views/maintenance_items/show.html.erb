@@ -15,7 +15,7 @@
       <%= link_to  "Show Logs", maintenance_item_maintenance_category_path(@maintenance_item, category), id: "logBtn_#{category.id}" ,class: 'btn align-self-center badge badge-primary' %>
     </li>
     <br>
-    <div class='viewLogs'></div>
+    <div id="<%= "showLog_#{category.id}" %>" class='viewLogs'></div>
   <% end %>
 </div>
 
