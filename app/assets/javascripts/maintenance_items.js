@@ -6,6 +6,16 @@ $(document).on('turbolinks:load', function() {
 
   $.getJSON(logPath)
     .done(function(data) {
+      let result = "";
+      let id = data[0].id;
+      let note = data[0].notes;
+      let tools = data[0].tools;
+      let log = $("div[id='"showLog_"" + id + "]");
+
+      result += "<p>" + tools + "</p>";
+
+      log.find("h3").after(result);
+      
       console.log(data);
     })
     .fail(function(data) {
