@@ -7,15 +7,19 @@ $(document).on('turbolinks:load', function() {
   $.getJSON(logPath)
     .done(function(data) {
       let result = "";
-      let id = data[0].id;
+      let id = data[0].maintenance_category_id;
       let note = data[0].notes;
+      let date_performed = data[0].date_performed;
+      let date_due = data[0].date_due;
       let tools = data[0].tools;
-      let log = $("div[id='"showLog_"" + id + "]");
+      let log = $("#showLog_" + id);
 
-      result += "<p>" + tools + "</p>";
+      result += "<p>Performed on: " + date_performed + "</p>" + "\n" + 
+      "<p>Due on: " + date_due + "</p>" + "\n" +
+      "<p>Notes: " + note + "</p>";
 
-      log.find("h3").after(result);
-      
+      log.append(result);
+
       console.log(data);
     })
     .fail(function(data) {
