@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require jquery-ui/accordion
  */
  
  // Variable Overrides
@@ -45,4 +46,3 @@ h5 {
 #error_explanation {
   color: #14A76C;
 }
-
