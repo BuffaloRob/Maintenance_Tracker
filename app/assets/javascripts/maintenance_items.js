@@ -1,6 +1,6 @@
 $(document).on('turbolinks:load', function() {
 
-  $("[id*=logBtn]").on("click", function (event) {
+  $("[id*=logBtn]").one("click", function (event) {
     event.preventDefault();
     let logPath = event.target.pathname;
 
@@ -14,14 +14,14 @@ $(document).on('turbolinks:load', function() {
         let date_performed = obj.date_performed;
         let date_due = obj.date_due;
         let tools = obj.tools;
-        let log = $("#showLog_" + id);
+        let $log = $("#showLog_" + id);
 
         result += "<p>Performed on: " + date_performed + "</p>" + "\n" +
           "<p>Due on: " + date_due + "</p>" + "\n" +
           "<p>Notes: " + note + "</p>" +
           "<hr>";
 
-        log.append(result);
+        $log.append(result);
       }
     })
     .fail(function(data) {
@@ -31,8 +31,15 @@ $(document).on('turbolinks:load', function() {
   });
 
     $(".accordion").accordion({
-      collapsible: true
+      collapsible: true,
+      active: false,
     });
 
+  $("[id*=logBtn]").on("click", function (event) {
+    event.preventDefault();
+  })
+
 })
+
+
   
