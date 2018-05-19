@@ -38,9 +38,9 @@ $(document).on('turbolinks:load', function () {
     active: false,
   });
 
-  $("[id*=logBtn]").on("click", function (event) {
+  $("[id*=detailsBtn]").on("click", function(event) {
     event.preventDefault();
-  })
+  });
 
 })
 
