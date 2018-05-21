@@ -2,20 +2,20 @@ $(document).on('turbolinks:load', function () {
 
   $("[id*=detailsBtn]").one("click", function (event) {
     event.preventDefault();
-    let logPath = event.target.pathname;
+    const detailsPath = event.target.pathname;
 
-    $.getJSON(logPath)
+    $.getJSON(detailsPath)
       .done(function (data) {
         console.log(data)
 
         let result = "";
-        let id = data.maintenance_category_id;
-        let note = data.notes;
-        let date_performed = data.date_performed;
-        let date_due = data.date_due;
-        let tools = data.tools;
-        let cost = data.cost;
-        let $log = $("#showDetails_" + id);
+        const id = data.id;
+        const note = data.notes;
+        const date_performed = data.date_performed;
+        const date_due = data.date_due;
+        const tools = data.tools;
+        const cost = data.cost;
+        const $details = $("#showDetails_" + id);
 
         result += 
           "<p>Performed on: " + date_performed + "</p>" + "\n" +
@@ -25,7 +25,7 @@ $(document).on('turbolinks:load', function () {
           "<p>Tools: " + tools + "</p>" +
           "<hr>";
 
-        $log.append(result)
+        $details.append(result);
       })
       .fail(function (data) {
         console.log("Error:");
