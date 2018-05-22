@@ -4,13 +4,19 @@ class MaintenanceItemsController < ApplicationController
   def index
     if current_user
       @maintenance_items = current_user.maintenance_items
+      # @maintenance_categories = []
+      # @maintenance_items.each do |item|
+      #   item.maintenance_categories.each do |category|
+      #     @maintenance_categories << category.name
+      #   end
+      # end
     else 
       redirect_to new_user_session_path
     end
 
     respond_to do |format|
       format.html { render :index}
-      format.json { render json: @maintenance_items}
+      format.json { render json: @maintenance_categories}
     end
   end
 
