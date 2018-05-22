@@ -10,7 +10,7 @@
 
       <%= link_to  "Delete this item", item, method: :delete, data: { confirm: 'Are you sure about that?'}, class: 'align-self-center badge badge-primary' %>
     </li>
-    <a href=# class="showCat"><h5>Show Categories</h5></a>
+    <a href=# id="<%= "categoryBtn_#{item.id}" %>"><h5>Show Categories</h5></a>
     <br>
     <div class="accordion">
       <div id="<%= "showCategory_#{item.id}" %>"></div>
