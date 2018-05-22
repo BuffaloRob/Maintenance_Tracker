@@ -7,6 +7,11 @@ class MaintenanceItemsController < ApplicationController
     else 
       redirect_to new_user_session_path
     end
+
+    respond_to do |format|
+      format.html { render :index}
+      format.json { render json: @maintenance_items}
+    end
   end
 
   def new
