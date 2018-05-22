@@ -1,3 +1,5 @@
 class MaintenanceLogsSerializer < ActiveModel::Serializer
   attributes :id, :notes, :tools, :cost, :date_performed, :date_due
+
+  belongs_to :maintenance_category
 end
