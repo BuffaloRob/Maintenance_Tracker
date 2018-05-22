@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   get 'past_due', to: "maintenance_logs#past_due"
   get 'upcoming', to: "maintenance_logs#upcoming"
+
+  get 'maintenance_logs/:id/log_data', to: 'maintenance_logs#log_data'
   
   root "maintenance_items#index"
   # The priority is based upon order of creation: first created -> highest priority.
