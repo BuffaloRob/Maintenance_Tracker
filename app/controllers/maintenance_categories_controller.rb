@@ -13,22 +13,6 @@ class MaintenanceCategoriesController < ApplicationController
       @maintenance_categories = MaintenanceCategory.all
     end
 
-    # if params[:maintenance_category_id]
-    #   @maintenance_category = MaintenanceCategory.find_by(id: params[:maintenance_category_id])
-    #   if @maintenance_category.nil?
-    #     redirect_to maintenance_category_path, alert: "That category doesn't exist"
-    #   else
-    #     @maintenance_logs = @maintenance_category.maintenance_logs
-    #   end
-    # else 
-    #   @maintenance_logs = MaintenanceLog.all
-    # end
-
-    # respond_to do |format|
-    #   format.html { render :show}
-    #   format.json { render json: @maintenance_logs}
-    # end
-
   end
 
   def new
@@ -76,11 +60,17 @@ class MaintenanceCategoriesController < ApplicationController
     if params[:maintenance_item_id]
       @maintenance_item = MaintenanceItem.find_by(id: params[:maintenance_item_id])
       @maintenance_category = @maintenance_item.maintenance_categories.find_by(id: params[:id])
+      @maintenance_logs = @maintenance_category.maintenance_logs
       if @maintenance_category.nil?
         redirect_to maintenance_item_maintenance_category_path(@maintenance_item), alert: "Category not found"
       end
     else 
       @maintenance_category = MaintenanceCategory.find(params[:id])
+    end
+
+    respond_to do |format|
+      format.html { render :show}
+      format.json { render json: @maintenance_logs}
     end
     
   end

@@ -1,20 +1,39 @@
-$(document).on('turbolinks:load', function() {
+$(document).on('turbolinks:load', function () {
 
-  $("[id*=logBtn]").on("click", function (event) {
+  $("[id*=categoryBtn]").one("click", function(event) {
     event.preventDefault();
-    let logPath = event.target.pathname;
+    let categoryPath = event.target.pathname;
 
-  $.getJSON(logPath)
-    .done(function(data) {
-      console.log(data);
-    })
-    .fail(function(data) {
-      console.log("Error:");
-      console.log(data);
-    });
+    $.getJSON(categoryPath)
+      .done(function(data) {
+        console.log(data);
+
+        for (obj of data) {
+          let result = "";
+          let id = obj.id;
+          let name = obj.name;
+          let $category = $("#showCategory_" + id);
+
+          result += "<p>" + name + "</p>" + "<hr>";
+
+          $category.append(result);
+        }
+      })
+      .fail(function(data) {
+        console.log("Error:");
+        console.log(data);
+      });
+  });
+
+  $(".accordion").accordion({
+    collapsible: true,
+    active: false,
+  });
+
+  $("[id*=categoryBtn]").on("click", function(event) {
+    event.preventDefault();
   });
 
 })
 
-//test comment
   

@@ -8,9 +8,15 @@
       </span>
       <%= link_to item.name, maintenance_item_path(item), html_options = {class: 'list-group-item list-group-item-action list-group-item-light'} %>
 
+      <a href=# id="<%= "categoryBtn_#{item.id}" %>" class="align-self-center badge badge-primary">Show Categories</a>
+
       <%= link_to  "Delete this item", item, method: :delete, data: { confirm: 'Are you sure about that?'}, class: 'align-self-center badge badge-primary' %>
     </li>
+    
     <br>
+    <div class="accordion">
+      <div id="<%= "showCategory_#{item.id}" %>"></div>
+    </div>
   <% end %>
 </div>
 <br>

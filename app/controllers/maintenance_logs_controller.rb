@@ -81,6 +81,11 @@ class MaintenanceLogsController < ApplicationController
     else
       @maintenance_log = MaintenanceLog.find(params[:id])
     end
+
+    respond_to do |format|
+      format.html { render :show}
+      format.json { render json: @maintenance_log}
+    end
   end
 
   def edit 
