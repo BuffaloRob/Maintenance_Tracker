@@ -4,6 +4,15 @@ class MaintenanceItemsController < ApplicationController
   def index
     if current_user
       @maintenance_items = current_user.maintenance_items
+
+      @maintenance_item_ids = current_user.maintenance_item_ids
+      @cat_names = []
+      @maintenance_item_ids.each do |id|
+        @log = MaintenanceLog.find_by(maintenance_item_id: id)
+        @cat_names << MaintenanceCategory.find(@log.maintenance_category_id).name
+      end
+            
+
       # @maintenance_categories = []
       # @maintenance_items.each do |item|
       #   item.maintenance_categories.each do |category|
@@ -16,7 +25,7 @@ class MaintenanceItemsController < ApplicationController
 
     respond_to do |format|
       format.html { render :index}
-      format.json { render json: @maintenance_categories}
+      format.json { render json: @cat_names}
     end
   end
 
