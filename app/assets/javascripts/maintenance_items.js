@@ -7,11 +7,11 @@ $(document).on('turbolinks:load', function () {
     $.getJSON(categoryPath)
       .done(function(data) {
         console.log(data);
-
-        for (obj of data) {
+        
+        for (cat of data) {
           let result = "";
-          let id = obj.id;
-          let name = obj.name;
+          let id = cat.maintenance_item_id;
+          let name = cat.name;
           let $category = $("#showCategory_" + id);
 
           result += "<p>" + name + "</p>" + "<hr>";
