@@ -3,10 +3,9 @@ $(document).on('turbolinks:load', function () {
   $("[id*=detailsBtn]").one("click", function (event) {
     event.preventDefault();
     const detailsPath = event.target.pathname;
-
+    
     $.getJSON(detailsPath)
       .done(function (data) {
-        console.log(data)
 
         let result = "";
         const id = data.id;
