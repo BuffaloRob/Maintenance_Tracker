@@ -25,7 +25,7 @@ class MaintenanceItemsController < ApplicationController
 
     respond_to do |format|
       format.html { render :index}
-      format.json { render json: @cat_names}
+      format.json { render json: @maintenance_items}
     end
   end
 
