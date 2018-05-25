@@ -7,18 +7,14 @@ class MaintenanceItemsController < ApplicationController
 
       @maintenance_item_ids = current_user.maintenance_item_ids
       @cat_names = []
+      @logs = []
       @maintenance_item_ids.each do |id|
-        @log = MaintenanceLog.find_by(maintenance_item_id: id)
-        @cat_names << MaintenanceCategory.find(@log.maintenance_category_id).name
+        @logs << MaintenanceLog.find_by(maintenance_item_id: id)
+        @logs.each do |log|
+          @cat_names << MaintenanceCategory.find(log.maintenance_category_id).name
+        end
       end
-            
-
-      # @maintenance_categories = []
-      # @maintenance_items.each do |item|
-      #   item.maintenance_categories.each do |category|
-      #     @maintenance_categories << category.name
-      #   end
-      # end
+ 
     else 
       redirect_to new_user_session_path
     end
