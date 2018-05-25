@@ -46,10 +46,14 @@ class MaintenanceLogsController < ApplicationController
     if params[:maintenance_item_id] && !MaintenanceItem.exists?(params[:maintenance_item_id])
       redirect_to maintenance_item_path, alert: "that item doesn't exist"
     else 
-      @maintenance_item = MaintenanceItem.find(params[:maintenance_item_id])
+      @maintenance_item = MaintenanceItem.find(params[:maintenance_item_id]) 
+      #@maintenance_item = MaintenanceItem.find(params[:maintenance_log][:maintenance_category_attributes][:id])
       @maintenance_log = @maintenance_item.maintenance_logs.create(maintenance_log_params)
       if @maintenance_log.valid?
-        redirect_to maintenance_item_maintenance_log_path(@maintenance_item, @maintenance_log)
+        respond_to do |format|
+          format.html {redirect_to maintenance_item_maintenance_log_path(@maintenance_item, @maintenance_log)}
+          format.json { render json: @maintenance_log}
+        end
       else
         render :new
       end
