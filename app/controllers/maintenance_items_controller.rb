@@ -51,8 +51,9 @@ class MaintenanceItemsController < ApplicationController
   end
 
   def show
-    # @maintenance_categories = MaintenanceCategory.all  
-    # @maintenance_item = current_user.maintenance_items.find_by(id: params[:id])
+     # For use with form to make new log
+    @maintenance_log = @maintenance_item.maintenance_logs.build
+    render 
   end
 
   def edit 
