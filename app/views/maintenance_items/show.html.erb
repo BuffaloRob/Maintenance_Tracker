@@ -20,6 +20,16 @@
     </div>
   <% end %>
 </div>
+<br>
+
+<div>
+  <%= render 'maintenance_logs/form'%>
+</div>
+
+<div id="logResult">
+  <h4 id="logDatePerformed"></h4>
+  <p id="logNotes"></p>
+</div>
 
 <%= link_to  "Back To Maintenance Items", maintenance_items_path, html_options = {class: 'badge badge-primary'} %><br>
 <%= link_to  "Add a New Maintenance Log", new_maintenance_item_maintenance_log_path(@maintenance_item), html_options = {class: 'badge badge-primary'} %><br>
