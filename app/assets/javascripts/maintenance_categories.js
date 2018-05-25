@@ -46,13 +46,15 @@ $(document).on('turbolinks:load', function () {
 
     // I don't think 'maint_categories' is the right route to use below
     // Also, what controller and what controller action should this be going through? Currently using the maintenance_items show controller
-    let logs = $.post('/maintenance_categories', values);
+    let action = $(this).attr('action')
+    ///maintenance_itens/:id/maintenance_logs
+    let logs = $.post(`${action}.json`, values);
 
     logs.done(function (data) {
       console.log(data);
       let log = data;
-      $("#logDatePerformed").text(post["date_performed"]);
-      $("#logNotes").text(post["notes"]);
+      $("#logDatePerformed").text(log["date_performed"]);
+      $("#logNotes").text(log["notes"]);
     });
   });
 
