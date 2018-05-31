@@ -30,15 +30,16 @@ $(document).on('turbolinks:load', function () {
     //     console.log("Error:");
     //     console.log(data);
     //   });
-
+    
     fetch(detailsPath)
       .then(function(resp) {
-        return resp.json()
+        return resp
+        
       })
       .then(function(data) {
-        const logDetails = new LogDetails(data.notes, data.tools)
-        console.log(logDetails.renderDetails())
-      })
+        const logDetails = new LogDetails(data.notes, data.tools);
+        console.log(logDetails.renderDetails());
+      });
   });
 
   $(".accordion").accordion({
