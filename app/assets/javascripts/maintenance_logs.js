@@ -4,32 +4,41 @@ $(document).on('turbolinks:load', function () {
     event.preventDefault();
     const detailsPath = event.target.pathname;
     
-    $.getJSON(detailsPath)
-      .done(function (data) {
+    // $.getJSON(detailsPath)
+    //   .done(function (data) {
 
-        let result = "";
-        const id = data.id;
-        const note = data.notes;
-        const date_performed = data.date_performed;
-        const date_due = data.date_due;
-        const tools = data.tools;
-        const cost = data.cost;
-        const $details = $("#showDetails_" + id);
+    //     let result = "";
+    //     const id = data.id;
+    //     const note = data.notes;
+    //     const date_performed = data.date_performed;
+    //     const date_due = data.date_due;
+    //     const tools = data.tools;
+    //     const cost = data.cost;
+    //     const $details = $("#showDetails_" + id);
 
-        result += 
-          "<p>Performed on: " + date_performed + "</p>" + "\n" +
-          "<p>Due on: " + date_due + "</p>" + "\n" +
-          "<p>Notes: " + note + "</p>" + "\n" +
-          "<p>Cost: $" + cost + "</p>" + "\n" +
-          "<p>Tools: " + tools + "</p>" +
-          "<hr>";
+    //     result += 
+    //       "<p>Performed on: " + date_performed + "</p>" + "\n" +
+    //       "<p>Due on: " + date_due + "</p>" + "\n" +
+    //       "<p>Notes: " + note + "</p>" + "\n" +
+    //       "<p>Cost: $" + cost + "</p>" + "\n" +
+    //       "<p>Tools: " + tools + "</p>" +
+    //       "<hr>";
 
-        $details.append(result);
+    //     $details.append(result);
+    //   })
+    //   .fail(function (data) {
+    //     console.log("Error:");
+    //     console.log(data);
+    //   });
+
+    fetch(detailsPath)
+      .then(function(resp) {
+        return resp.json()
       })
-      .fail(function (data) {
-        console.log("Error:");
-        console.log(data);
-      });
+      .then(function(data) {
+        const logDetails = new LogDetails(data.notes, data.tools)
+        console.log(logDetails.renderDetails())
+      })
   });
 
   $(".accordion").accordion({
@@ -44,3 +53,13 @@ $(document).on('turbolinks:load', function () {
 })
 
 
+class LogDetails {
+  constructor(notes, tools) {
+    this.notes = notes;
+    this.tools = tools;
+  }
+
+  renderDetails() {
+    console.log(`these are the deetz ${this.notes} and ${this.tools}.`)
+  }
+}
