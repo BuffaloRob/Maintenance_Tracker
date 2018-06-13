@@ -11,13 +11,13 @@ $(document).on('turbolinks:load', function () {
           let result = "";
           let id = obj.maintenance_category_id;
           let note = obj.notes;
-          let date_performed = obj.date_performed;
-          let date_due = obj.date_due;
+          let date_performed = new Date(obj.date_performed);
+          let date_due = new Date(obj.date_due);
           let tools = obj.tools;
           let $log = $("#showLog_" + id);
 
-          result += "<p>Performed on: " + date_performed + "</p>" + "\n" +
-            "<p>Due on: " + date_due + "</p>" + "\n" +
+          result += "<p>Performed on: " + date_performed.toLocaleDateString('en-US') + "</p>" + "\n" +
+            "<p>Due on: " + date_due.toLocaleDateString('en-US') + "</p>" + "\n" +
             "<p>Notes: " + note + "</p>" +
             "<hr>";
 
