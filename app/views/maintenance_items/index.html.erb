@@ -8,8 +8,6 @@
       </span>
       <%= link_to item.name, maintenance_item_path(item), html_options = {class: 'list-group-item list-group-item-action list-group-item-light'} %>
 
-      <%= link_to  "Show Categories", maintenance_item_path(item), id: "categoryBtn_#{item.id}" ,class: 'btn align-self-center badge badge-primary' %>
-
       <%= link_to  "Delete this item", item, method: :delete, data: { confirm: 'Are you sure about that?'}, class: 'btn align-self-center badge badge-primary' %>
     </li>
     
