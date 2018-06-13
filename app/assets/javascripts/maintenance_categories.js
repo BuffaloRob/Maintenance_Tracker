@@ -16,8 +16,8 @@ $(document).on('turbolinks:load', function () {
           let tools = obj.tools;
           let $log = $("#showLog_" + id);
 
-          result += "<p>Performed on: " + date_performed.toLocaleDateString('en-US') + "</p>" + "\n" +
-            "<p>Due on: " + date_due.toLocaleDateString('en-US') + "</p>" + "\n" +
+          result += "<p>Performed on: " + date_performed.toLocaleDateString('en-US', { timeZone: 'UTC' }) + "</p>" + "\n" +
+            "<p>Due on: " + date_due.toLocaleDateString('en-US', { timeZone: 'UTC' }) + "</p>" + "\n" +
             "<p>Notes: " + note + "</p>" +
             "<hr>";
 

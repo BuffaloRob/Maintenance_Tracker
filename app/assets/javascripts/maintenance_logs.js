@@ -17,8 +17,8 @@ $(document).on('turbolinks:load', function () {
         const $details = $("#showDetails_" + id);
 
         result += 
-          "<p>Performed on: " + date_performed.toLocaleDateString('en-US') + "</p>" + "\n" +
-          "<p>Due on: " + date_due.toLocaleDateString('en-US') + "</p>" + "\n" +
+          "<p>Performed on: " + date_performed.toLocaleDateString('en-US', {timeZone: 'UTC'}) + "</p>" + "\n" +
+        "<p>Due on: " + date_due.toLocaleDateString('en-US', { timeZone: 'UTC' }) + "</p>" + "\n" +
           "<p>Notes: " + note + "</p>" + "\n" +
           "<p>Cost: $" + cost + "</p>" + "\n" +
           "<p>Tools: " + tools + "</p>" +
