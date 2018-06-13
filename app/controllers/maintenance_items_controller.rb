@@ -5,15 +5,18 @@ class MaintenanceItemsController < ApplicationController
     if current_user
       @maintenance_items = current_user.maintenance_items
 
-      @maintenance_item_ids = current_user.maintenance_item_ids
-      @cat_names = []
-      @logs = []
-      @maintenance_item_ids.each do |id|
-        @logs << MaintenanceLog.find_by(maintenance_item_id: id)
-        @logs.each do |log|
-          @cat_names << MaintenanceCategory.find(log.maintenance_category_id).name
-        end
-      end
+      #For use with the 'show categories' button from the Maintenance Items Show page, copied below
+      # <%= link_to  "Show Categories", maintenance_item_path(item), id: "categoryBtn_#{item.id}" ,class: 'btn align-self-center badge badge-primary' %>
+      
+      # @maintenance_item_ids = current_user.maintenance_item_ids
+      # @cat_names = []
+      # @logs = []
+      # @maintenance_item_ids.each do |id|
+      #   @logs << MaintenanceLog.find_by(maintenance_item_id: id)
+      #   @logs.each do |log|
+      #     @cat_names << MaintenanceCategory.find(log.maintenance_category_id).name
+      #   end
+      # end
  
     else 
       redirect_to new_user_session_path
