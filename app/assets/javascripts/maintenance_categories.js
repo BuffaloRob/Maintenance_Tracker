@@ -53,8 +53,23 @@ $(document).on('turbolinks:load', function () {
     logs.done(function (data) {
       console.log(data);
       let log = data;
-      $("#logDatePerformed").text(log["date_performed"]);
-      $("#logNotes").text(log["notes"]);
+      let date_performed = new Date(log.date_performed);
+      let date_due = new Date(log.date_due);
+      
+      $("#logDatePerformed").text(date_performed.toLocaleDateString('en-US', { timeZone: 'UTC' }));
+      $("#logDatePerformed").prepend("Performed on: ");
+
+      $("#logDateDue").text(date_due.toLocaleDateString('en-US', { timeZone: 'UTC' }));
+      $("#logDateDue").prepend("Due on: ");
+
+      $("#logCost").text(log.cost);
+      $("#logCost").prepend("Cost: $");
+
+      $("#logNotes").text(log.notes);
+      $("#logNotes").prepend("Note: ");
+
+      $("#logTools").text(log.tools);
+      $("#logTools").prepend("Tools: ");
     });
   });
 
