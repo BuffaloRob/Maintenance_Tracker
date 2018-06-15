@@ -3,14 +3,16 @@ $(document).on('turbolinks:load', function () {
   $("[id*=detailsBtn]").one("click", function (event) {
     event.preventDefault();
     const detailsPath = event.target.pathname;
-
-    fetch(detailsPath)
+    //added http to this, only use 'detailsPath' if issues pop up
+    fetch(`http://localhost:3000${detailsPath}`)
       .then(function (resp) {
+        //or specify resp.json()
         return resp
-
       })
       .then(function (data) {
         const logDetails = new LogDetails(data.notes, data.tools);
+        
+        $("#showDetails").append(logDetails.renderDetails());
         console.log(logDetails.renderDetails());
       });
   });
@@ -35,6 +37,9 @@ class LogDetails {
 
   renderDetails() {
     console.log(`these are the deetz ${this.notes} and ${this.tools}.`)
+    return `
+      <h2>${this.notes}</h2>
+    `
   }
 }
 
