@@ -82,7 +82,7 @@ class MaintenanceCategoriesController < ApplicationController
         redirect_to maintenance_item_path, alert: "Item not found"
       else 
         @maintenance_category = maintenance_item.maintenance_categories.find_by(id: params[:id])
-        redirect_to maintenance_item_maintenance_categories_path, alert: "Category not found" if @maintenance_category.nil?
+        redirect_to maintenance_item_maintenance_categories_path, alert: "Category not found" 
       end
     else
       @maintenance_category = MaintenanceCategory.find(params[:id])
